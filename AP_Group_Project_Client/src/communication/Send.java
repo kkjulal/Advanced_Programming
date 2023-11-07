@@ -1,5 +1,5 @@
 package communication;
 
-public class Sent {
+public class Send {
 
 }

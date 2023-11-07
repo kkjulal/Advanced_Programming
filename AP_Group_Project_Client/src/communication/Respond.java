@@ -1,5 +1,5 @@
 package communication;
 
-public class Response {
+public class Respond {
 
 }
