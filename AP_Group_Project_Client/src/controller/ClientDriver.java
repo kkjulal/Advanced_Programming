@@ -2,7 +2,7 @@ package controller;
 
 import view.WelcomeScreen;
 
-public class Driver {
+public class ClientDriver {
 
 	public static void main(String[] args) {
 		new WelcomeScreen();

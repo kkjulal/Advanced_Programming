@@ -1,4 +1,4 @@
-package domain;
+package model;
 
 public class Customer extends User{
 	//Declaration and Initialization

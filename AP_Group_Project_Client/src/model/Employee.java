@@ -1,4 +1,4 @@
-package domain;
+package model;
 
 public class Employee extends User {
 	//Declaration and Initialization
