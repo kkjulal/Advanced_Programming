@@ -3,27 +3,27 @@ package domain;
 public class Equipment {
 	//Declaration and Initialization
 	private String equipmentId;
-	private String type;
+	private String category;
 	private double price;
 	private String status;
 	
 	//Constructors
 	public Equipment() {
 		this.equipmentId = "";
-		this.type = "";
+		this.category = "";
 		this.price = 0;
 		this.status = "available";
 	}
 	
 	public Equipment(String equipmentId, String type, double price, String status) {
 		this.equipmentId = equipmentId;
-		this.type = type;
+		this.category = type;
 		this.price = price;
 		this.status = status;
 	}
 	
 	public Equipment(String type, double price) {
-		this.type = type;
+		this.category = type;
 		this.price = price;
 	}
 	
@@ -37,11 +37,11 @@ public class Equipment {
 	}
 
 	public String getType() {
-		return type;
+		return category;
 	}
 
 	public void setType(String type) {
-		this.type = type;
+		this.category = type;
 	}
 
 	public double getPrice() {
@@ -63,7 +63,7 @@ public class Equipment {
 	//Display
 	@Override
 	public String toString() {
-		return "Equipment ID: " + equipmentId + "\nType: " + type + "\nPrice: " + price + "\nStatus: " + status
+		return "Equipment ID: " + equipmentId + "\nCategory: " + category + "\nPrice: " + price + "\nStatus: " + status
 				+ "";
 	}
 	

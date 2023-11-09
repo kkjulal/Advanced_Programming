@@ -6,13 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class EmployeeLoginScreen implements ActionListener {
 
 	private JFrame frame;
 	private JLabel lblHello, lblUsername, lblPassword;
-	private JTextField txtUsername, txtPassword;
+	private JTextField txtUsername;
+	private JPasswordField txtPassword;
 	private JButton btnCancel, btnLogin;
 	
 	public EmployeeLoginScreen() {		
@@ -22,7 +24,7 @@ public class EmployeeLoginScreen implements ActionListener {
 		lblUsername = new JLabel("Username:");
 		lblPassword = new JLabel("Password:");	
 		txtUsername = new JTextField();
-		txtPassword = new JTextField();	
+		txtPassword = new JPasswordField();	
 		btnCancel = new JButton("Cancel");
 		btnLogin = new JButton("Login");
 		

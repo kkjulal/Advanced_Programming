@@ -3,25 +3,44 @@ package domain;
 public class User {
 	//Declaration and Initialization
 	protected String id;
-	protected String name;
+	protected String firstName;
+	protected String lastName;
 	protected String telephone;
 	protected String email;
-	protected String password;	
-	//Constructors
-	public User(String id, String name, String telephone, String email, String password) {
+	protected Crypto password;
+	
+	//Constructors	
+	public User() {
+		this.id = "";
+		this.firstName = "";
+		this.lastName = "";
+		this.telephone = "";
+		this.email = "";
+		this.password = new Crypto("");
+	}
+	
+	public User(String id, String firstName, String lastName, String telephone, String email, Crypto password) {
 		this.id = id;
-		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.telephone = telephone;
 		this.email = email;
 		this.password = password;
 	}
 	
-	public User(String id, String name, String telephone, String email) {
+	public User(String id, String firstName, String lastName, String telephone, String email) {
 		this.id = id;
-		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.telephone = telephone;
 		this.email = email;
 	}
+	
+	public User(String id, Crypto password) {
+		this.id = id;
+		this.password = password;
+	}
+	
 	//Getters and Setters
 	public String getId() {
 		return id;
@@ -29,11 +48,17 @@ public class User {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getTelephone() {
 		return telephone;
@@ -47,16 +72,17 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
+	public Crypto getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(Crypto password) {
 		this.password = password;
-	}	
+	}
+	
 	//Display
 	@Override
 	public String toString() {
-		return "User ID: " + id + "\nName: " + name + "\nTelephone: " + telephone + "\nEmail" + email + "";
+		return "User ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nTelephone: " + telephone + "\nEmail" + email + "";
 	}
 	
 }

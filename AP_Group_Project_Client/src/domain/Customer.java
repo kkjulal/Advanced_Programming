@@ -6,14 +6,14 @@ public class Customer extends User{
 	private double balance;
 	
 	//Constructors
-	public Customer(String id, String name, String telephone, String email, String password, String address, double balance) {
-		super(id, name, telephone, email, password);
+	public Customer(String id, String firstName, String lastName, String telephone, String email, Crypto password, String address, double balance) {
+		super(id, firstName, lastName, telephone, email, password);
 		this.address = address;
 		this.balance = balance;
 	}
 	
-	public Customer(String id, String name, String telephone, String email, String address, double balance) {
-		super(id, name, telephone, email);
+	public Customer(String id, String firstName, String lastName, String telephone, String email, String address, double balance) {
+		super(id, firstName, lastName, telephone, email);
 		this.address = address;
 		this.balance = balance;
 	}
@@ -30,7 +30,7 @@ public class Customer extends User{
 	//Display
 	@Override
 	public String toString() {
-		return "Customer ID: " + id + "\nName: " + name + "\nAddress: " + address	+ "\nTelephone: " + telephone + "\nEmail: " + email + "\nBalance: " + balance + "";
+		return "Customer ID: " + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nAddress: " + address	+ "\nTelephone: " + telephone + "\nEmail: " + email + "\nBalance: " + balance + "";
 	}
 
 }

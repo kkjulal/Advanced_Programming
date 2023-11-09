@@ -10,7 +10,7 @@ public class Rental {
 	private String employee;
 	
 	//Constructors
-	public Rental(String customer, String equipment,Date date, int duration, double cost, String employee) {
+	public Rental(String customer, String equipment, Date date, int duration, double cost, String employee) {
 		this.customer = customer;
 		this.equipment = equipment;
 		this.date = date;

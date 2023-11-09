@@ -3,21 +3,28 @@ package domain;
 public class Payment {
 	//Declaration and Initialization
 	private String paymentId;
-	private double amount;
+	private String customer;
+	private String equipment;
+	private String rental;
 	private double amountPaid;
 	private Date date;
 
 	//Constructors
 	public Payment() {
 		this.paymentId = "";
-		this.amount = 0;
+		this.customer = "";
+		this.equipment = "";
+		this.rental = "";
 		this.amountPaid = 0;
 		this.date = new Date(1, 1, 1979);
 	}
-	
-	public Payment(String paymentId, double amount, double amountPaid, Date date) {
+
+	public Payment(String paymentId, String customer, String equipment, String rental, double amountPaid, Date date) {
+		super();
 		this.paymentId = paymentId;
-		this.amount = amount;
+		this.customer = customer;
+		this.equipment = equipment;
+		this.rental = rental;
 		this.amountPaid = amountPaid;
 		this.date = date;
 	}
@@ -31,12 +38,28 @@ public class Payment {
 		this.paymentId = paymentId;
 	}
 
-	public double getAmount() {
-		return amount;
+	public String getCustomer() {
+		return customer;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+
+	public String getEquipment() {
+		return equipment;
+	}
+
+	public void setEquipment(String equipment) {
+		this.equipment = equipment;
+	}
+
+	public String getRental() {
+		return rental;
+	}
+
+	public void setRental(String rental) {
+		this.rental = rental;
 	}
 
 	public double getAmountPaid() {
@@ -55,11 +78,10 @@ public class Payment {
 		this.date = date;
 	}
 	
-	//Display
 	@Override
 	public String toString() {
-		return "Payment ID: " + paymentId + "\nAmount: " + amount + "\nAmount Paid: " + amountPaid + "\nDate: "
-				+ date + "";
+		return "Payment ID: " + paymentId + "Customer ID: " + customer + "Equipment ID: " + equipment + "Rental ID: "
+				+ rental + "Amount Paid: " + amountPaid + "Date: " + date + "";
 	}
 	
 }
