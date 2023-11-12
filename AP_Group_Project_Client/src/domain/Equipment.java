@@ -1,6 +1,8 @@
-package model;
+package domain;
 
-public class Equipment {
+import java.io.Serializable;
+
+public class Equipment implements Serializable {
 	//Declaration and Initialization
 	private String equipmentId;
 	private String category;
@@ -15,15 +17,15 @@ public class Equipment {
 		this.status = "available";
 	}
 	
-	public Equipment(String equipmentId, String type, double price, String status) {
+	public Equipment(String equipmentId, String category, double price, String status) {
 		this.equipmentId = equipmentId;
-		this.category = type;
+		this.category = category;
 		this.price = price;
 		this.status = status;
 	}
 	
-	public Equipment(String type, double price) {
-		this.category = type;
+	public Equipment(String category, double price) {
+		this.category = category;
 		this.price = price;
 	}
 	
@@ -40,8 +42,8 @@ public class Equipment {
 		return category;
 	}
 
-	public void setType(String type) {
-		this.category = type;
+	public void setType(String category) {
+		this.category = category;
 	}
 
 	public double getPrice() {

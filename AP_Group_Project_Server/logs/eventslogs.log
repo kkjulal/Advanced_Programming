@@ -1,0 +1,121 @@
+[INFO ] 2023-11-11 00:11:25.792 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:11:25.795 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:11:26.606 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:20:09.505 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:20:09.507 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:20:11.917 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:22:37.256 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:22:37.260 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:22:37.898 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:26:10.578 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:26:10.581 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:26:12.168 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:29:12.588 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:29:12.591 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:29:14.125 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:38:07.276 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:38:07.279 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:38:07.977 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:43:51.077 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:43:51.080 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:43:51.892 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:46:15.725 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:46:15.728 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:46:16.433 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 00:52:45.809 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 00:52:45.812 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 00:52:47.856 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:06:04.517 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:06:04.520 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:06:05.654 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:07:42.109 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:07:42.112 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:07:45.892 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:13:46.882 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:13:46.884 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:13:47.828 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:16:28.701 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:16:28.704 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:16:29.524 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:18:32.295 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:18:32.298 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:18:32.958 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:19:44.229 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:19:44.232 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:19:45.507 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:30:17.403 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:30:17.406 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:30:18.902 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:40:08.152 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:40:08.156 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:40:08.825 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:42:08.738 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:42:08.741 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:42:09.776 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 01:43:20.665 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 01:43:20.668 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 01:43:22.384 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 11:08:52.540 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 11:08:52.545 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 11:08:53.773 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 11:23:43.371 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 11:23:43.375 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 11:23:43.924 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 11:36:52.114 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 11:36:52.117 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 11:36:52.723 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 11:48:27.696 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 11:48:27.699 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 11:48:28.608 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 11:50:01.596 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 11:50:01.600 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 11:50:02.825 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 11:53:38.935 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 11:53:38.938 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 11:53:40.522 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 12:04:08.233 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 12:04:08.236 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 12:04:08.956 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 12:39:23.290 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 12:39:23.295 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 12:39:24.135 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 12:46:44.045 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 12:46:44.048 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 12:46:44.769 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 13:10:42.834 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 13:10:42.837 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 13:10:48.048 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 13:12:49.764 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[TRACE] 2023-11-11 13:12:59.061 [AWT-EventQueue-0] Server - authenticateCustomer
+[INFO ] 2023-11-11 13:31:35.894 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 13:31:35.897 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 13:31:37.429 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 13:32:01.232 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[TRACE] 2023-11-11 13:32:02.275 [AWT-EventQueue-0] Server - authenticateCustomer
+[INFO ] 2023-11-11 13:45:16.931 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 13:45:16.935 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 13:45:18.301 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 13:45:40.828 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[TRACE] 2023-11-11 13:45:42.572 [AWT-EventQueue-0] Server - authenticateCustomer
+[INFO ] 2023-11-11 13:45:58.144 [AWT-EventQueue-0] Server - Connections closed.
+[INFO ] 2023-11-11 13:51:49.468 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 13:51:49.471 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 13:51:50.139 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 13:52:05.219 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[TRACE] 2023-11-11 13:52:06.150 [AWT-EventQueue-0] Server - authenticateCustomer
+[INFO ] 2023-11-11 13:53:39.321 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 13:53:39.324 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 13:53:39.933 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 13:53:53.341 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[TRACE] 2023-11-11 13:53:54.207 [AWT-EventQueue-0] Server - authenticateCustomer
+[INFO ] 2023-11-11 13:57:36.586 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 13:57:36.589 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 13:57:37.887 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 13:57:54.331 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[TRACE] 2023-11-11 13:57:55.428 [AWT-EventQueue-0] Server - authenticateCustomer
+[INFO ] 2023-11-11 13:57:57.475 [AWT-EventQueue-0] Server - Connections closed.
+[INFO ] 2023-11-11 19:21:56.317 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-11 19:21:56.321 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-11 19:21:57.250 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-11 19:22:18.056 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-11 19:23:44.662 [AWT-EventQueue-0] Server - An error occured while accepting request: Connection reset

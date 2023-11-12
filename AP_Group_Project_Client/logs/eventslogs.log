@@ -1,0 +1,412 @@
+[ERROR] 2023-11-10 12:41:00.685 [main] Client - Client server connection failed: Connection refused: connect
+[INFO ] 2023-11-10 12:41:30.017 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 12:43:45.486 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 12:43:46.747 [main] Client - Action sent.
+[INFO ] 2023-11-10 12:44:00.860 [main] Client - Connections closed.
+[INFO ] 2023-11-10 12:46:20.941 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 12:46:22.745 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 12:46:23.812 [main] Client - Action sent.
+[INFO ] 2023-11-10 12:46:28.888 [main] Client - Connections closed.
+[INFO ] 2023-11-10 13:33:00.961 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 13:33:02.429 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 13:33:04.065 [main] Client - Action sent.
+[INFO ] 2023-11-10 13:33:20.120 [main] Client - Connections closed.
+[INFO ] 2023-11-10 13:33:43.906 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 13:33:44.489 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 13:33:45.158 [main] Client - Action sent.
+[INFO ] 2023-11-10 13:33:52.719 [main] Client - Connections closed.
+[INFO ] 2023-11-10 13:43:14.086 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 13:43:15.042 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 13:43:16.144 [main] Client - Action sent.
+[INFO ] 2023-11-10 13:54:56.518 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 13:54:57.382 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 13:54:58.629 [main] Client - Action sent.
+[INFO ] 2023-11-10 13:55:18.314 [main] Client - Connections closed.
+[INFO ] 2023-11-10 13:57:10.154 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 13:57:10.785 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 13:57:11.327 [main] Client - Action sent.
+[INFO ] 2023-11-10 13:57:18.331 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:01:12.616 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:01:13.420 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:01:15.446 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:01:25.749 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:05:38.079 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:05:43.735 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:05:44.831 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:05:45.718 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:05:53.910 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:05:54.328 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:05:55.961 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:05:56.337 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:06:43.497 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:06:44.373 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:06:50.434 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:07:08.494 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:10:44.510 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:10:46.986 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:10:48.569 [main] Client - Action sent.
+[ERROR] 2023-11-10 14:14:16.281 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:14:23.826 [main] Client - Client server connection failed: Connection refused: connect
+[INFO ] 2023-11-10 14:14:55.476 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:14:56.183 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:14:57.045 [main] Client - Action sent.
+[ERROR] 2023-11-10 14:18:31.319 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:18:38.564 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:18:56.676 [main] Client - Client server connection failed: Connection refused: connect
+[INFO ] 2023-11-10 14:19:27.727 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:19:28.645 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:19:29.553 [main] Client - Action sent.
+[ERROR] 2023-11-10 14:22:51.690 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:23:08.078 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:23:14.020 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:23:44.590 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:23:52.526 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:24:05.289 [main] Client - Client server connection failed: Connection refused: connect
+[INFO ] 2023-11-10 14:24:46.959 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:24:47.538 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:24:48.138 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:24:50.847 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:29:07.833 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:29:08.426 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:29:09.140 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:29:26.383 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:30:40.519 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:30:41.571 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:30:42.455 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:30:45.802 [main] Client - Connections closed.
+[ERROR] 2023-11-10 14:43:42.084 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:43:54.392 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-10 14:43:59.177 [main] Client - Client server connection failed: Connection refused: connect
+[INFO ] 2023-11-10 14:44:38.289 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:44:39.341 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:44:39.955 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:44:42.245 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:46:34.787 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:46:35.714 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:46:36.484 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:46:43.008 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:48:41.658 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:48:42.247 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:48:42.876 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:48:47.931 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:50:49.154 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:50:49.904 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:50:50.739 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:50:57.217 [main] Client - Connections closed.
+[INFO ] 2023-11-10 14:51:16.998 [main] Client - Client server connection created.
+[INFO ] 2023-11-10 14:51:17.547 [main] Client - Input and Output streams created.
+[INFO ] 2023-11-10 14:51:17.999 [main] Client - Action sent.
+[INFO ] 2023-11-10 14:51:20.849 [main] Client - Connections closed.
+[INFO ] 2023-11-10 22:50:39.235 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 22:50:41.177 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 22:50:42.159 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 22:50:55.258 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 22:51:35.443 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 22:51:36.112 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 22:54:57.993 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 22:55:00.072 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 22:55:00.988 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 23:07:46.301 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:07:47.114 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 23:07:48.049 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 23:10:19.285 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:10:20.046 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 23:10:20.727 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 23:13:19.923 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:13:20.630 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 23:13:31.994 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 23:19:11.579 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:33:58.126 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:33:59.556 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 23:34:00.083 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 23:43:40.124 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:43:41.291 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-10 23:43:42.643 [AWT-EventQueue-0] Client - Action sent.
+[INFO ] 2023-11-10 23:49:19.440 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:49:20.276 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-10 23:49:20.278 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-10 23:49:21.379 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-10 23:49:21.379 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-10 23:49:21.392 [AWT-EventQueue-0] Client - receiveResponse
+[INFO ] 2023-11-10 23:52:41.052 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:52:42.380 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-10 23:52:42.382 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-10 23:52:43.086 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-10 23:52:43.086 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-10 23:52:43.101 [AWT-EventQueue-0] Client - receiveResponse
+[INFO ] 2023-11-10 23:54:59.794 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:55:00.307 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-10 23:55:00.309 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-10 23:55:01.356 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-10 23:55:01.356 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-10 23:55:01.370 [AWT-EventQueue-0] Client - receiveResponse
+[INFO ] 2023-11-10 23:58:47.532 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-10 23:58:48.172 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-10 23:58:48.173 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-10 23:58:48.855 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-10 23:58:48.856 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-10 23:58:48.871 [AWT-EventQueue-0] Client - receiveResponse
+[INFO ] 2023-11-11 00:01:59.877 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:02:00.488 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:02:00.490 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:02:01.163 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:02:01.163 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:02:01.177 [AWT-EventQueue-0] Client - receiveResponse
+[INFO ] 2023-11-11 00:11:45.763 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:11:46.885 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:11:46.887 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:11:47.965 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:11:47.965 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:11:47.981 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:11:47.981 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 00:20:40.593 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:20:41.654 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:20:41.656 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:20:42.951 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:20:42.951 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:20:42.964 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:20:42.964 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 00:22:55.407 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:22:56.483 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:22:56.484 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:22:57.190 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:22:57.190 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:22:57.205 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:22:57.206 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 00:22:57.206 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 00:26:37.355 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:26:39.048 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:26:39.049 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:26:40.148 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:26:40.148 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:26:40.162 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:26:40.162 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 00:26:40.162 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 00:29:51.022 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:29:51.915 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:29:51.917 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:29:52.937 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:29:52.937 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:29:52.950 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:29:52.950 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 00:29:52.950 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 00:38:26.598 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:38:28.670 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:38:28.672 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:38:29.278 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:38:29.279 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:38:29.292 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:38:29.293 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 00:38:29.293 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 00:44:05.466 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:44:06.059 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:44:06.060 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:44:06.576 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:44:06.577 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:44:06.591 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:44:06.591 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 00:44:06.591 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 00:44:36.138 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:46:29.084 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 00:46:29.835 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:46:29.837 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 00:46:30.406 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 00:46:30.406 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 00:46:30.420 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 00:46:30.420 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 00:46:30.420 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 00:53:13.600 [main] Client - Client server connection created.
+[INFO ] 2023-11-11 00:53:14.582 [main] Client - Input and Output streams created.
+[TRACE] 2023-11-11 00:53:14.586 [main] Client - sendAction
+[INFO ] 2023-11-11 00:53:15.513 [main] Client - Action sent.
+[TRACE] 2023-11-11 00:53:15.530 [main] Client - receiveResponse
+[TRACE] 2023-11-11 00:53:15.530 [main] Client - try block
+[INFO ] 2023-11-11 01:06:10.874 [main] Client - Client server connection created.
+[INFO ] 2023-11-11 01:06:11.433 [main] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:06:11.436 [main] Client - sendAction
+[INFO ] 2023-11-11 01:06:12.136 [main] Client - Action sent.
+[TRACE] 2023-11-11 01:06:12.152 [main] Client - receiveResponse
+[TRACE] 2023-11-11 01:06:12.152 [main] Client - try block
+[INFO ] 2023-11-11 01:07:53.834 [main] Client - Client server connection created.
+[INFO ] 2023-11-11 01:07:54.697 [main] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:07:54.700 [main] Client - sendAction
+[INFO ] 2023-11-11 01:07:55.315 [main] Client - Action sent.
+[TRACE] 2023-11-11 01:07:55.330 [main] Client - receiveResponse
+[TRACE] 2023-11-11 01:07:55.331 [main] Client - try block
+[ERROR] 2023-11-11 01:11:34.965 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-11 01:11:55.862 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-11 01:12:22.840 [main] Client - Client server connection failed: Connection refused: connect
+[ERROR] 2023-11-11 01:13:07.845 [main] Client - Client server connection failed: Connection refused: connect
+[INFO ] 2023-11-11 01:14:50.862 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:14:51.565 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:14:51.567 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:14:52.239 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:14:52.240 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:14:52.254 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:14:52.254 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 01:14:52.254 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 01:16:14.765 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:16:45.954 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:16:47.125 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:16:47.127 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:16:48.506 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:16:48.506 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:16:48.519 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:16:48.519 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 01:16:48.519 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 01:18:45.352 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:18:46.611 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:18:46.613 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:18:47.292 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:18:47.293 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:18:47.304 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:18:47.305 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 01:20:03.704 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:20:04.504 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:20:04.505 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:20:05.419 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:20:05.419 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:20:05.433 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:20:05.434 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 01:20:05.434 [AWT-EventQueue-0] Client - Authenticate Customer
+[INFO ] 2023-11-11 01:20:07.776 [AWT-EventQueue-0] Client - Connections closed.
+[INFO ] 2023-11-11 01:30:47.981 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:30:48.653 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:30:48.655 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:30:49.313 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:30:49.313 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:30:49.327 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:30:49.327 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 01:40:22.073 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:40:22.675 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:40:22.677 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:40:23.569 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:40:23.569 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:40:23.584 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:40:23.585 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 01:42:29.728 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:42:30.342 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:42:30.343 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:42:30.956 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:42:30.957 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:42:30.970 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:42:30.970 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 01:43:35.722 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 01:43:36.900 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 01:43:36.901 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 01:43:38.051 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 01:43:38.052 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 01:43:38.065 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 01:43:38.065 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 11:09:06.316 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 11:09:07.019 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 11:09:07.021 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 11:09:07.626 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 11:09:07.627 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 11:09:07.644 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 11:09:07.644 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 11:23:57.750 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 11:23:58.301 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 11:23:58.303 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 11:23:58.811 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 11:23:58.811 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 11:23:58.826 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 11:23:58.826 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 11:37:05.613 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 11:37:06.429 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 11:37:06.430 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 11:37:07.043 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 11:37:07.043 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 11:37:07.058 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 11:37:07.058 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 11:48:43.597 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 11:48:44.179 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 11:48:44.180 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 11:48:44.696 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 11:48:44.696 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 11:48:44.711 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 11:48:44.711 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 11:50:15.323 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 11:50:15.822 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 11:50:15.823 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 11:50:16.339 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 11:50:16.340 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 11:50:16.353 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 11:50:16.353 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 11:53:51.993 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 11:53:52.552 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 11:53:52.554 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 11:53:53.120 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 11:53:53.120 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 11:53:53.136 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 11:53:53.136 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 12:04:25.282 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 12:04:25.946 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 12:04:25.948 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 12:04:26.612 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 12:04:26.613 [AWT-EventQueue-0] Client - sendCustomerCredentials
+[TRACE] 2023-11-11 12:04:26.626 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 12:04:26.626 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 12:39:35.508 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 12:39:36.097 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 12:39:36.099 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 12:39:36.601 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 12:39:36.614 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 12:39:36.614 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 12:46:58.385 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 12:46:59.687 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 12:46:59.688 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 12:47:00.233 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 12:47:00.248 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 12:47:00.248 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 13:12:49.755 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 13:12:49.763 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 13:12:49.767 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 13:12:59.034 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 13:12:59.046 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 13:12:59.047 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 13:12:59.091 [AWT-EventQueue-0] Client - Login successful.
+[INFO ] 2023-11-11 13:13:08.696 [AWT-EventQueue-0] Client - Connections closed.
+[INFO ] 2023-11-11 13:32:01.226 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 13:32:01.232 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 13:32:01.234 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 13:32:02.246 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 13:32:02.260 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 13:32:02.260 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 13:32:02.306 [AWT-EventQueue-0] Client - Customer Id: 1000 Name: Kimarley Julal Logged in.
+[INFO ] 2023-11-11 13:32:06.401 [AWT-EventQueue-0] Client - Connections closed.
+[INFO ] 2023-11-11 13:45:40.821 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 13:45:40.828 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 13:45:40.830 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 13:45:42.539 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 13:45:42.554 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 13:45:42.555 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 13:45:42.603 [AWT-EventQueue-0] Client - Customer Id: 1000 Name:   Logged in.
+[INFO ] 2023-11-11 13:45:44.634 [AWT-EventQueue-0] Client - Connections closed.
+[INFO ] 2023-11-11 13:52:05.210 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 13:52:05.219 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 13:52:05.220 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 13:52:06.116 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 13:52:06.131 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 13:52:06.132 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 13:52:06.184 [AWT-EventQueue-0] Client - Customer Id:  Name:   Logged in.
+[INFO ] 2023-11-11 13:52:25.568 [AWT-EventQueue-0] Client - Connections closed.
+[INFO ] 2023-11-11 13:53:53.331 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 13:53:53.341 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 13:53:53.342 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 13:53:54.176 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 13:53:54.192 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 13:53:54.192 [AWT-EventQueue-0] Client - try block
+[TRACE] 2023-11-11 13:53:54.236 [AWT-EventQueue-0] Client - Customer Id:  Name:   Logged in.
+[INFO ] 2023-11-11 13:54:04.998 [AWT-EventQueue-0] Client - Connections closed.
+[INFO ] 2023-11-11 13:57:54.324 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 13:57:54.331 [AWT-EventQueue-0] Client - Input and Output streams created.
+[TRACE] 2023-11-11 13:57:54.332 [AWT-EventQueue-0] Client - sendAction
+[INFO ] 2023-11-11 13:57:55.398 [AWT-EventQueue-0] Client - Action sent.
+[TRACE] 2023-11-11 13:57:55.413 [AWT-EventQueue-0] Client - receiveResponse
+[TRACE] 2023-11-11 13:57:55.413 [AWT-EventQueue-0] Client - try block
+[INFO ] 2023-11-11 13:58:09.860 [AWT-EventQueue-0] Client - Connections closed.
+[ERROR] 2023-11-11 18:51:35.062 [AWT-EventQueue-0] Client - Client server connection failed: Connection refused: connect
+[INFO ] 2023-11-11 19:22:18.048 [AWT-EventQueue-0] Client - Client server connection created.
+[INFO ] 2023-11-11 19:22:18.055 [AWT-EventQueue-0] Client - Input and Output streams created.
+[INFO ] 2023-11-11 19:23:00.419 [AWT-EventQueue-0] Client - Client server connection created.

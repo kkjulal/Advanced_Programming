@@ -1,4 +1,4 @@
-package model;
+package domain;
 
 public class Date {
 	//Declaration and Initialization
@@ -38,6 +38,6 @@ public class Date {
 	//Display
 	@Override
 	public String toString() {
-		return day + "/" + month + "/" + year + "\n";
+		return year + "-" + month + "-" + day + "\n";
 	}
 }

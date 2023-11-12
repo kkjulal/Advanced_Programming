@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import client.Client;
+import domain.Customer;
+
 public class CustomerLoginScreen implements ActionListener {
 	private JFrame frame;
 	private JLabel lblHello, lblUsername, lblPassword;
@@ -59,8 +62,21 @@ public class CustomerLoginScreen implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if (e.getSource() == btnLogin) {
-			//new CustomerDashboard();
+			Client client = new Client();
+			String id = txtUsername.getText().trim();
+			String password = String.valueOf(txtPassword.getPassword());
+			//System.err.println("id " + id + " password " + password);
+			Customer customer = new Customer(id, password);
+			
+			
+			
+//			client.sendAction("Authenticate Customer");			
+//			client.sendCustomer(customer);
+//			client.receiveResponse();
+//			
+//			client.closeConnection();
 		}
 		if (e.getSource() == btnCancel) {
 			new WelcomeScreen();
