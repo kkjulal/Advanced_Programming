@@ -3,26 +3,16 @@ package client;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.net.Socket;
-
 import javax.swing.JOptionPane;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import domain.Customer;
-import domain.Employee;
-import domain.Payment;
-import domain.Rental;
-import view.CustomerDashboard;
-import view.CustomerLoginScreen;
 
-public class Client implements Serializable {
+public class Client {
 	private ObjectInputStream objIs;
 	private static ObjectOutputStream objOs;
 	private Socket connectionSocket;
 	private String action = "";
-	private static final Logger logger = LogManager.getLogger(Client.class); //logger used to track all actions and errors
 	
 	public Client() {
 		this.createConnection();
@@ -33,10 +23,8 @@ public class Client implements Serializable {
 		try {
 			connectionSocket = new Socket("127.0.0.1", 8888);
 			JOptionPane.showMessageDialog(null, "Client server connection created.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
-			logger.info("Client server connection created.");
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Client server connection failed: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
-			logger.error("Client server connection failed: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
@@ -46,11 +34,9 @@ public class Client implements Serializable {
 			objIs = new ObjectInputStream(connectionSocket.getInputStream());
 			//Create an output stream to send data to the server
 			objOs = new ObjectOutputStream(connectionSocket.getOutputStream());
-			//JOptionPane.showMessageDialog(null, "Input and Output streams created.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
-			logger.info("Input and Output streams created.");
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
-			logger.error("An error occured: " + e.getMessage());
+			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	
@@ -59,117 +45,57 @@ public class Client implements Serializable {
 			objOs.close();
 			objIs.close();
 			connectionSocket.close();
-			JOptionPane.showMessageDialog(null, "Connections closed.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
-			logger.info("Connections closed.");
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured while closing connections: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
-			logger.error("An error occured while closing connections: " + e.getMessage());
+			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	
 	public void sendAction(String action) {
-		logger.trace("sendAction");
 		this.action = action;
 		try {
 			objOs.writeObject(action);
-			JOptionPane.showMessageDialog(null, "Action sent.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
-			logger.info("Action sent.");
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured while sending an action: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
-			logger.error("An error occured while sending an action: " + e.getMessage());
-		}
-	}
-	
-	public void sendCustomer(Customer custObj) {
-		try {
-			objOs.writeObject(custObj);
 		} catch (IOException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 	
-	public void sendEmployee(Employee empObj) {
+	public void sendCustomer(Customer cusObj) {
 		try {
-			objOs.writeObject(empObj);
+			objOs.writeObject(cusObj);
 		} catch (IOException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 	
-	public void sendRental(Rental rentObj) {
+	public void sendCustomerCredentials(Customer cusObj) {
 		try {
-			objOs.writeObject(rentObj);
+			objOs.writeObject(cusObj);
 		} catch (IOException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 	
-	public void sendPayment(Payment payObj) {
+	@SuppressWarnings("unused")
+	public void receiveLoginResponse() {
 		try {
-			objOs.writeObject(payObj);
-		} catch (IOException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
-	
-	public void receiveResponse() {
-		logger.trace("receiveResponse");
-		try {
-			logger.trace("try block");
-			if (action.equalsIgnoreCase("Authenticate Customer")) {
+			if (action.equalsIgnoreCase("Find Customer")) {
+				Customer customer = null;
 				
-				Customer customer = new Customer();
+				
 				customer = (Customer) objIs.readObject();
+				System.out.println(customer);
 				
-				if (customer != null) {
-					JOptionPane.showMessageDialog(null, "Login successful.", "Login Status", JOptionPane.INFORMATION_MESSAGE);
-					//logger.trace("Customer Id: " + customer.getId() + " Name: " + customer.getFirstName() + " " + customer.getLastName() + " Logged in.");
-					
-					new CustomerDashboard();
+				if (customer.getId() != null) {
+					JOptionPane.showMessageDialog(null, "Record found", "GEERS Query Status", JOptionPane.INFORMATION_MESSAGE);
 				}
-				else {
-					logger.trace("Customer login attempt failed.");
-					JOptionPane.showMessageDialog(null, "Login attempt failed.", "Login Status", JOptionPane.ERROR_MESSAGE);
-					new CustomerLoginScreen();
-				}
+				else
+					JOptionPane.showMessageDialog(null, "Record not found", "GEERS Query Status", JOptionPane.ERROR_MESSAGE);
+				
 			}
-
-			if (action.equalsIgnoreCase("Add Customer")) {
-				Boolean flag = (Boolean) objIs.readObject();
-				if (flag == true) {
-					JOptionPane.showMessageDialog(null, "Customer record added successfully", "Record Status", JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-			if (action.equalsIgnoreCase("Add Employee")) {
-				Boolean flag = (Boolean) objIs.readObject();
-				if (flag == true) {
-					JOptionPane.showMessageDialog(null, "Employee record added successfully", "Record Status", JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-			if (action.equalsIgnoreCase("Add Rental")) {
-				Boolean flag = (Boolean) objIs.readObject();
-				if (flag == true) {
-					JOptionPane.showMessageDialog(null, "Employee record added successfully", "Record Status", JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-			if (action.equalsIgnoreCase("Add Payment")) {
-				Boolean flag = (Boolean) objIs.readObject();
-				if (flag == true) {
-					JOptionPane.showMessageDialog(null, "Employee record added successfully", "Record Status", JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-			if (action.equalsIgnoreCase("Show Available Equipments")) {
-				Boolean flag = (Boolean) objIs.readObject();
-				if (flag == true) {
-					JOptionPane.showMessageDialog(null, "Employee record added successfully", "Record Status", JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-
-			
 		} catch (ClassCastException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -179,4 +105,19 @@ public class Client implements Serializable {
 		}
 	}
 	
+	public static void main(String[] args) {
+		
+		Client client = new Client();
+		Customer cusObj = new Customer("1001", "kj123");
+		
+		client.sendAction("Find Customer");
+		client.sendCustomerCredentials(cusObj);
+		
+		client.receiveLoginResponse();
+		client.closeConnection();
+		
+		//If customer is found they will be logged into the GEER system.
+
+	}
+
 }

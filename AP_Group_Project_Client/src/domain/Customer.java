@@ -4,14 +4,13 @@ import java.io.Serializable;
 
 import javax.swing.JOptionPane;
 
+@SuppressWarnings("serial")
 public class Customer implements Serializable {
 	//Declaration and Initialization
 	private String id;
 	private String firstName;
 	private String lastName;
 	private String telephone;
-	private String email;
-	private String address;
 	private double balance;
 	private String password;
 	
@@ -21,28 +20,24 @@ public class Customer implements Serializable {
 		this.firstName = "";
 		this.lastName = "";
 		this.telephone = "";
-		this.email = "";
 		this.balance = 0;
-		this.address = "";
+		this.password = "";
 	}
 	
-	public Customer(String id, String firstName, String lastName, String telephone, String email, String address, String password) {
+	public Customer(String id, String firstName, String lastName, String telephone, double balance, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.telephone = telephone;
-		this.email = email;
-		this.address = address;
+		this.balance = balance;
 		this.password = password;
 	}
 	
-	public Customer(String id, String firstName, String lastName, String telephone, String email, String address, double balance) {
+	public Customer(String id, String firstName, String lastName, String telephone, double balance) {
 		this.id = id;
 		this.firstName = firstName;
-		this.telephone = telephone;
 		this.lastName = lastName;
-		this.email = email;
-		this.address = address;
+		this.telephone = telephone;
 		this.balance = balance;
 	}
 	
@@ -84,22 +79,6 @@ public class Customer implements Serializable {
 		this.telephone = telephone;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public double getBalance() {
 		return balance;
 	}
@@ -114,6 +93,12 @@ public class Customer implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	//Display
+	@Override
+	public String toString() {
+		return "Customer ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nTelephone: " + telephone + "\nBalance: " + balance + "\nPassword: " + password + "";
 	}
 
 }

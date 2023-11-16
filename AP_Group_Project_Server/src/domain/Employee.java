@@ -111,24 +111,4 @@ public class Employee implements Serializable {
 		return "Employee ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nExtension: " + extension + "\nEmail: " + email + "";
 	}
 	
-	public void loginEmployee() {
-		Session session;
-		Transaction transaction = null;
-		try {
-			session = SessionFactoryBuilder.getSessionFactory(2).getCurrentSession();
-			transaction = (Transaction) session.beginTransaction();
-			Customer cus = (Customer) session.get(Customer.class, this.id);
-			session.delete(cus);
-			JOptionPane.showMessageDialog(null, "Customer " + cus.getId() + " record was deleted.", "Student Query Status", JOptionPane.INFORMATION_MESSAGE);
-			transaction.commit();
-			session.close();
-		} catch (HibernateException e) {
-			transaction.rollback();
-			e.printStackTrace();
-		} catch (Exception e) {
-			transaction.rollback();
-			e.printStackTrace();
-		}		
-	}
-	
 }

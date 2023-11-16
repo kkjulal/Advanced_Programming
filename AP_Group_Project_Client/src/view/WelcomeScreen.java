@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class WelcomeScreen implements ActionListener {
+	
+	
 	private JFrame frame;
 	private JLabel lblWelcome, lblUser;
 	private JButton btnCustomer, btnEmployee, btnExit;
@@ -46,7 +48,7 @@ public class WelcomeScreen implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCustomer) {
-			new CustomerLoginScreen();
+			new CustomerLoginScreen();			
 		}
 		if (e.getSource() == btnEmployee) {
 			new EmployeeLoginScreen();
@@ -59,5 +61,6 @@ public class WelcomeScreen implements ActionListener {
 	public static void main(String[] args) {
 		new WelcomeScreen();
 	}
+
 
 }

@@ -20,22 +20,22 @@ public class SessionFactoryBuilder {
 					sessionFactory = new org.hibernate.cfg.Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Customer.class).buildSessionFactory();
 				}
 			}
-			if (opt == 2) {
+			else if (opt == 2) {
 				if(sessionFactory == null) {
 					sessionFactory = new org.hibernate.cfg.Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class).buildSessionFactory();
 				}
 			}
-			if (opt == 3) {
+			else if (opt == 3) {
 				if(sessionFactory == null) {
 					sessionFactory = new org.hibernate.cfg.Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Equipment.class).buildSessionFactory();
 				}
 			}
-			if (opt == 4) {
+			else if (opt == 4) {
 				if(sessionFactory == null) {
 					sessionFactory = new org.hibernate.cfg.Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Rental.class).buildSessionFactory();
 				}
 			}
-			if (opt == 5) {
+			else if (opt == 5) {
 				if(sessionFactory == null) {
 					sessionFactory = new org.hibernate.cfg.Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Payment.class).buildSessionFactory();
 				}

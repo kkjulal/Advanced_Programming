@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernatee/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Equipment" table="equipment" >
+		<id column="id" name="equipment_id" type="java.lang.String"/>
+		<property name="name" column="name" type="java.lang.String"/>
+		<property name="category" column="category" type="java.lang.String"/>
+		<property name="status" column="status" type="java.lang.String"/>		
+	</class>
+</hibernate-mapping>

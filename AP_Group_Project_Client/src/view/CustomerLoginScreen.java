@@ -2,25 +2,39 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import client.Actions;
 import client.Client;
+import client.DbConn;
 import domain.Customer;
 
-public class CustomerLoginScreen implements ActionListener {
+public class CustomerLoginScreen extends Thread implements ActionListener {
+	
+	@Override
+	public void run() {
+		
+	}
+	
 	private JFrame frame;
 	private JLabel lblHello, lblUsername, lblPassword;
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
 	private JButton btnCancel, btnLogin;
 	
-	public CustomerLoginScreen() {		
-		initialize();		
+	public CustomerLoginScreen() {
+
+		initialize();
 	}
 	
 	public void initialize() {
@@ -65,18 +79,17 @@ public class CustomerLoginScreen implements ActionListener {
 		
 		if (e.getSource() == btnLogin) {
 			Client client = new Client();
+			
 			String id = txtUsername.getText().trim();
 			String password = String.valueOf(txtPassword.getPassword());
-			//System.err.println("id " + id + " password " + password);
 			Customer customer = new Customer(id, password);
+			Actions action = new Actions();
+
+			client.sendAction("Find Student");
+			client.sendCustomer(customer);
+			//client.receiveResponse();
+			client.closeConnection();
 			
-			
-			
-//			client.sendAction("Authenticate Customer");			
-//			client.sendCustomer(customer);
-//			client.receiveResponse();
-//			
-//			client.closeConnection();
 		}
 		if (e.getSource() == btnCancel) {
 			new WelcomeScreen();
@@ -86,5 +99,7 @@ public class CustomerLoginScreen implements ActionListener {
 	public static void main(String[] args) {
 		new CustomerLoginScreen();
 	}
+	
+
 
 }

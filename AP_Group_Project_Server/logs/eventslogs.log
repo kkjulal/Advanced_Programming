@@ -119,3 +119,82 @@
 [INFO ] 2023-11-11 19:21:57.250 [AWT-EventQueue-0] Server - Database Connection Established.
 [INFO ] 2023-11-11 19:22:18.056 [AWT-EventQueue-0] Server - Streams initialised successfully.
 [ERROR] 2023-11-11 19:23:44.662 [AWT-EventQueue-0] Server - An error occured while accepting request: Connection reset
+[INFO ] 2023-11-12 01:35:08.281 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-12 01:35:08.287 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-12 01:35:19.032 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-12 01:35:59.990 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-12 01:36:08.825 [AWT-EventQueue-0] Server - An error occured while accepting request: Connection reset
+[INFO ] 2023-11-12 01:59:56.245 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-12 01:59:56.248 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-12 01:59:56.970 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-12 02:00:17.042 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-12 02:00:17.770 [AWT-EventQueue-0] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = -6123236587669018951
+[INFO ] 2023-11-12 02:01:42.125 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-12 02:01:42.128 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-12 02:01:42.749 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-12 02:01:59.081 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-12 02:02:00.343 [AWT-EventQueue-0] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = -6123236587669018951
+[INFO ] 2023-11-12 02:04:26.758 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-12 02:04:26.762 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-12 02:04:27.452 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-12 02:04:40.878 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-12 02:04:41.665 [AWT-EventQueue-0] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = -6123236587669018951
+[ERROR] 2023-11-12 02:13:56.179 [main] Server - There was an error while creating a connection to the server:  Address already in use: bind
+[TRACE] 2023-11-12 02:13:56.182 [main] Server - waitForRequests
+[INFO ] 2023-11-12 02:14:08.778 [main] Server - Server Connection Established.
+[TRACE] 2023-11-12 02:14:08.782 [main] Server - waitForRequests
+[INFO ] 2023-11-12 02:14:10.099 [main] Server - Database Connection Established.
+[INFO ] 2023-11-12 02:14:58.545 [main] Server - Streams initialised successfully.
+[ERROR] 2023-11-12 02:14:59.430 [main] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = -6123236587669018951
+[INFO ] 2023-11-12 06:09:32.153 [main] Server - Server Connection Established.
+[TRACE] 2023-11-12 06:09:32.158 [main] Server - waitForRequests
+[INFO ] 2023-11-12 06:09:34.174 [main] Server - Database Connection Established.
+[INFO ] 2023-11-12 06:09:57.300 [main] Server - Streams initialised successfully.
+[INFO ] 2023-11-12 06:10:20.848 [main] Server - Connections closed.
+[INFO ] 2023-11-12 06:11:19.740 [main] Server - Server Connection Established.
+[TRACE] 2023-11-12 06:11:19.746 [main] Server - waitForRequests
+[INFO ] 2023-11-12 06:11:20.646 [main] Server - Database Connection Established.
+[INFO ] 2023-11-12 06:11:36.458 [main] Server - Streams initialised successfully.
+[ERROR] 2023-11-12 06:22:21.125 [main] Server - There was an error while creating a connection to the server:  Address already in use: bind
+[TRACE] 2023-11-12 06:22:21.128 [main] Server - waitForRequests
+[INFO ] 2023-11-12 06:22:23.324 [main] Server - Database Connection Established.
+[INFO ] 2023-11-12 06:22:35.809 [main] Server - Server Connection Established.
+[TRACE] 2023-11-12 06:22:35.814 [main] Server - waitForRequests
+[INFO ] 2023-11-12 06:22:37.095 [main] Server - Database Connection Established.
+[INFO ] 2023-11-12 06:22:56.997 [main] Server - Streams initialised successfully.
+[INFO ] 2023-11-12 06:23:08.448 [main] Server - Connections closed.
+[INFO ] 2023-11-12 06:28:25.768 [main] Server - Server Connection Established.
+[TRACE] 2023-11-12 06:28:25.771 [main] Server - waitForRequests
+[INFO ] 2023-11-12 06:28:26.619 [main] Server - Database Connection Established.
+[INFO ] 2023-11-12 06:28:44.323 [main] Server - Streams initialised successfully.
+[INFO ] 2023-11-12 06:28:57.211 [main] Server - Connections closed.
+[INFO ] 2023-11-14 17:49:51.772 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-14 17:49:51.776 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-14 17:49:53.051 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-14 17:50:17.067 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-14 17:50:18.121 [AWT-EventQueue-0] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = 520067864636064296
+[INFO ] 2023-11-14 17:58:24.907 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-14 17:58:24.910 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-14 17:58:25.813 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-14 17:58:37.595 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-14 17:58:39.400 [AWT-EventQueue-0] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = 520067864636064296
+[INFO ] 2023-11-14 18:00:32.374 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-14 18:00:32.377 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-14 18:00:33.244 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-14 18:00:39.462 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-14 18:00:40.322 [AWT-EventQueue-0] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = 520067864636064296
+[INFO ] 2023-11-14 18:02:24.550 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-14 18:02:24.554 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-14 18:02:25.321 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-14 18:02:32.399 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-14 18:02:33.567 [AWT-EventQueue-0] Server - An error occured while accepting request: domain.Customer; local class incompatible: stream classdesc serialVersionUID = 1274263695337525896, local class serialVersionUID = 520067864636064296
+[INFO ] 2023-11-14 18:04:32.397 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-14 18:04:32.400 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-14 18:04:33.645 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-14 18:04:49.408 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-14 18:04:50.441 [AWT-EventQueue-0] Server - An error occured while accepting request: writing aborted; java.io.NotSerializableException: domain.Customer
+[INFO ] 2023-11-14 18:05:58.309 [AWT-EventQueue-0] Server - Server Connection Established.
+[TRACE] 2023-11-14 18:05:58.312 [AWT-EventQueue-0] Server - waitForRequests
+[INFO ] 2023-11-14 18:05:59.278 [AWT-EventQueue-0] Server - Database Connection Established.
+[INFO ] 2023-11-14 18:06:05.386 [AWT-EventQueue-0] Server - Streams initialised successfully.
+[ERROR] 2023-11-14 18:06:06.439 [AWT-EventQueue-0] Server - An error occured while accepting request: writing aborted; java.io.NotSerializableException: domain.Customer

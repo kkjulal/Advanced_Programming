@@ -16,6 +16,7 @@ import org.hibernate.Transaction;
 
 import server.SessionFactoryBuilder;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="Customer")
 public class Customer implements Serializable {
@@ -28,10 +29,6 @@ public class Customer implements Serializable {
 	private String lastName;
 	@Column(name="telephone")
 	private String telephone;
-	@Column(name="email")
-	private String email;
-	@Column(name="address")
-	private String address;
 	@Column(name="balance")
 	private double balance;
 	@Column(name="password")
@@ -43,28 +40,24 @@ public class Customer implements Serializable {
 		this.firstName = "";
 		this.lastName = "";
 		this.telephone = "";
-		this.email = "";
 		this.balance = 0;
-		this.address = "";
+		this.password = "";
 	}
 	
-	public Customer(String id, String firstName, String lastName, String telephone, String email, String address, String password) {
+	public Customer(String id, String firstName, String lastName, String telephone, double balance, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.telephone = telephone;
-		this.email = email;
-		this.address = address;
+		this.balance = balance;
 		this.password = password;
 	}
 	
-	public Customer(String id, String firstName, String lastName, String telephone, String email, String address, double balance) {
+	public Customer(String id, String firstName, String lastName, String telephone, double balance) {
 		this.id = id;
 		this.firstName = firstName;
-		this.telephone = telephone;
 		this.lastName = lastName;
-		this.email = email;
-		this.address = address;
+		this.telephone = telephone;
 		this.balance = balance;
 	}
 	
@@ -106,22 +99,6 @@ public class Customer implements Serializable {
 		this.telephone = telephone;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public double getBalance() {
 		return balance;
 	}
@@ -141,27 +118,7 @@ public class Customer implements Serializable {
 	//Display
 	@Override
 	public String toString() {
-		return "Customer ID: " + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nTelephone: " + telephone + "\nEmail: " + email + "\nAddress: " + address + "\nBalance: " + balance + "";
-	}
-	
-	public void login() {
-		Session session;
-		Transaction transaction = null;
-		try {
-			session = SessionFactoryBuilder.getSessionFactory(1).getCurrentSession();
-			transaction = (Transaction) session.beginTransaction();
-			Customer cus = (Customer) session.get(Customer.class, this.id);
-			session.delete(cus);
-			JOptionPane.showMessageDialog(null, "Customer " + cus.getId() + " record was deleted.", "Student Query Status", JOptionPane.INFORMATION_MESSAGE);
-			transaction.commit();
-			session.close();
-		} catch (HibernateException e) {
-			transaction.rollback();
-			e.printStackTrace();
-		} catch (Exception e) {
-			transaction.rollback();
-			e.printStackTrace();
-		}		
+		return "Customer ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nTelephone: " + telephone + "\nBalance: " + balance + "\nPassword: " + password + "";
 	}
 
 }
