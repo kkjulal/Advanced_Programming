@@ -198,3 +198,9 @@
 [INFO ] 2023-11-14 18:05:59.278 [AWT-EventQueue-0] Server - Database Connection Established.
 [INFO ] 2023-11-14 18:06:05.386 [AWT-EventQueue-0] Server - Streams initialised successfully.
 [ERROR] 2023-11-14 18:06:06.439 [AWT-EventQueue-0] Server - An error occured while accepting request: writing aborted; java.io.NotSerializableException: domain.Customer
+[TRACE] 2023-11-17 14:47:10.434 [main] ServerDriver - Server application started.
+[TRACE] 2023-11-17 14:47:10.439 [main] Server - Entered Server class.
+[INFO ] 2023-11-17 14:47:12.674 [main] Server - Database Connection Established: 
+[TRACE] 2023-11-17 14:52:40.263 [main] ServerDriver - Server application started.
+[TRACE] 2023-11-17 14:52:40.267 [main] Server - Entered Server class.
+[INFO ] 2023-11-17 14:52:42.046 [main] Server - Database Connection Established.
