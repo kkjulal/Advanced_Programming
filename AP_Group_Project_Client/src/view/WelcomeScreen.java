@@ -7,14 +7,20 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class WelcomeScreen extends Thread implements ActionListener {
-	
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class WelcomeScreen implements ActionListener {
 	
 	private JFrame frame;
 	private JLabel lblWelcome, lblUser;
 	private JButton btnCustomer, btnEmployee, btnExit;
 	
+	private static final Logger logger = LogManager.getLogger(WelcomeScreen.class);
+	
 	public WelcomeScreen() {
+		logger.trace("Entered WelcomeScreen class.");
+		
 		frame = new JFrame("GEERS - Welcome");
 		lblWelcome = new JLabel("Welcome to the Grizzly’s Entertainment Equipment Rental System");
 		lblUser = new JLabel("Please select a user to continue:");
@@ -48,10 +54,12 @@ public class WelcomeScreen extends Thread implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCustomer) {
-			new CustomerLoginScreen();			
+			CustomerLoginScreen t1 = new CustomerLoginScreen();			
+			t1.start();
 		}
 		if (e.getSource() == btnEmployee) {
-			new EmployeeLoginScreen();
+			EmployeeLoginScreen t2 = new EmployeeLoginScreen();
+			t2.start();
 		}
 		if (e.getSource() == btnExit) {
 			System.exit(0);

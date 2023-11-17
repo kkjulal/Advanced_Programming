@@ -2,14 +2,28 @@ package domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @SuppressWarnings("serial")
+@Entity
+@Table(name="Customer")
 public class Customer implements Serializable {
 	//Declaration and Initialization
+	@Id
+	@Column(name="customer_id")
 	private String id;
+	@Column(name="first_name")
 	private String firstName;
+	@Column(name="last_name")
 	private String lastName;
+	@Column(name="telephone")
 	private String telephone;
+	@Column(name="balance")
 	private double balance;
+	@Column(name="password")
 	private String password;
 	
 	//Constructors
@@ -97,6 +111,6 @@ public class Customer implements Serializable {
 	@Override
 	public String toString() {
 		return "Customer ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nTelephone: " + telephone + "\nBalance: " + balance + "\nPassword: " + password + "";
-	}
+	}	
 
 }

@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import domain.Customer;
 import domain.Employee;
 import domain.Equipment;
@@ -26,7 +29,10 @@ public class Server {
 	private static Connection dbConn = null;
 	private Statement stmt;
 	
+	private static final Logger logger = LogManager.getLogger(Server.class);
+	
 	public Server() {
+		logger.trace("Entered Server class.");
 		this.createConnection();
 		this.waitForRequests();		
 	}
@@ -35,7 +41,8 @@ public class Server {
 		try {
 			serverSocket = new ServerSocket(8888); //create new instance of the serverSocket listening on port 8888
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			logger.error("An error occured: " + e.getMessage());
 		}
 	}
 	
@@ -45,7 +52,8 @@ public class Server {
 			
 			objIs = new ObjectInputStream(connectionSocket.getInputStream());
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			logger.error("An error occured: " + e.getMessage());
 		}
 	}
 	
@@ -55,9 +63,11 @@ public class Server {
 				String url = "jdbc:mysql://localhost:3306/geersdb";
 				dbConn = DriverManager.getConnection(url, "root", "");
 				
-				JOptionPane.showMessageDialog(null, "Database Connection Established", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Database Connection Established.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
+				logger.info("Database Connection Established.");
 			} catch (SQLException ex) {
 				JOptionPane.showMessageDialog(null, "Could not connect to database: " + ex, "Connection Status", JOptionPane.ERROR_MESSAGE);
+				logger.error("Could not connect to database: " + ex);
 			}
 		}
 		return dbConn;		
@@ -69,7 +79,8 @@ public class Server {
 			objIs.close();
 			connectionSocket.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Could not connect to database: " + e, "Connection Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("Could not connect to database: " + e);
 		}
 	}
 	
@@ -83,10 +94,12 @@ public class Server {
 			} else {
 				objOs.writeObject(false);
 			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "There was an error while creating customer record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error while creating customer record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		}
 	}
 	
@@ -100,10 +113,12 @@ public class Server {
 			} else {
 				objOs.writeObject(false);
 			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "There was an error while creating employee record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error while creating employee record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		}
 	}
 	
@@ -117,10 +132,12 @@ public class Server {
 			} else {
 				objOs.writeObject(false);
 			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "There was an error while creating equipment record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error while creating equipment record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		}
 	}
 	
@@ -134,10 +151,12 @@ public class Server {
 			} else {
 				objOs.writeObject(false);
 			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "There was an error while creating rental record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error while creating rental record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		}
 	}
 	
@@ -151,10 +170,12 @@ public class Server {
 			} else {
 				objOs.writeObject(false);
 			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "There was an error while creating payment record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error while creating payment record: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error while creating customer record: " + e);
 		}
 	}
 	
@@ -211,10 +232,11 @@ public class Server {
 				this.closeConnection();
 			}
 		} catch (EOFException e) {
-			System.out.println("Client has terminated connection with the server");
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error: " + e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error: " + e, "Record Creation Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("There was an error: " + e);
 		}
 	}
 	

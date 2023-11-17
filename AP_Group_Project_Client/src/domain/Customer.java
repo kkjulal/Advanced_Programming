@@ -6,11 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.swing.JOptionPane;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import client.SessionFactoryBuilder;
+import view.EmployeeLoginScreen;
+
 
 @SuppressWarnings("serial")
 @Entity
@@ -30,6 +36,8 @@ public class Customer implements Serializable {
 	private double balance;
 	@Column(name="password")
 	private String password;
+	
+	private static final Logger logger = LogManager.getLogger(Customer.class);
 	
 	//Constructors
 	public Customer() {
@@ -129,13 +137,14 @@ public class Customer implements Serializable {
 			cusObj = (Customer) session.get(Customer.class, this.id);			
 			transaction.commit();
 			session.close();			
-			
 		} catch (HibernateException e) {
 			transaction.rollback();
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Class", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
 		} catch (Exception e) {
 			transaction.rollback();
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Class", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
 		}
 		return cusObj;
 	}

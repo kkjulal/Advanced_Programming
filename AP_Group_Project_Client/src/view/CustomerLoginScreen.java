@@ -14,9 +14,19 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import domain.Customer;
 
-public class CustomerLoginScreen implements ActionListener {
+public class CustomerLoginScreen extends Thread  implements ActionListener {
+	
+	@Override
+	public void run() { //Multi-threading Implementation
+		System.out.println("Customer Thread ID: "+ Thread.currentThread().getId());
+		new CustomerLoginScreen();
+	}
 	
 	private JFrame frame;
 	private JLabel lblHello, lblUsername, lblPassword;
@@ -29,8 +39,11 @@ public class CustomerLoginScreen implements ActionListener {
 	private Toolkit toolkit;
 	private PopupMenu popup;
 	
+	private static final Logger logger = LogManager.getLogger(CustomerLoginScreen.class);
+	
 	public CustomerLoginScreen() {
-
+		logger.info("Now in CustomerLoginScreen.");
+		
 		initialize();
 	}
 	
@@ -92,12 +105,13 @@ public class CustomerLoginScreen implements ActionListener {
 			//If customer is found they will gain access to the dashboard.
 			if(cusReturn.getId().equals(id) && cusReturn.getPassword().equals(password)) {
 				JOptionPane.showMessageDialog(null, "Login successful.", "Customer Login Status", JOptionPane.INFORMATION_MESSAGE);
+				logger.info("Customer " + id + "logged in.");
 				new CustomerDashboard(cusReturn); //passing the customer's id and name to use in various functions
 				
 			}
 			else
 				JOptionPane.showMessageDialog(null, "User not found. Please check your credentials and try again.", "Customer Login Status", JOptionPane.ERROR_MESSAGE);
-			
+				logger.error("Customer login failed ID used: " + id);
 		}
 		if (e.getSource() == btnCancel) {
 			new WelcomeScreen();

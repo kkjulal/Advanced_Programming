@@ -38,10 +38,13 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
-import client.DbConn;
 import domain.Customer;
+import client.DbConn;
 
 @SuppressWarnings("serial")
 public class CustomerDashboard implements ActionListener, Serializable {
@@ -50,11 +53,14 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		Customer cusObj = new Customer();
 		new CustomerDashboard(cusObj);
 	}
-
+	
+	//Declaration and Initialization
 	private String id;
 	private String firstName;
 	private String lastName;
 	private double balance;
+	
+	private static final Logger logger = LogManager.getLogger(EmployeeDashboard.class);
 	
 	//Connection
 	private Connection dbConn = null;
@@ -74,7 +80,6 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	private JCheckBox cbStage, cbLighting, cbPower, cbSound;
 	private JComboBox<String> comboBox;
 	
-	private ImageIcon frameIcon;
 	private TrayIcon trayIcon;
 	private Image image, logoImage;
 	private Toolkit toolkit;
@@ -85,6 +90,8 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	}
 	
 	public CustomerDashboard(Customer cusObj) {
+		logger.trace("Entered CustomerDashboard class.");
+		
 		this.dbConn = DbConn.getConnection();
 		
 		this.id = cusObj.getId();
@@ -112,9 +119,9 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		lblPower = new JLabel("POWER EQUIPMENTS AVAILABILITY");
 		lblSound = new JLabel("SOUND EQUIPMENTS AVAILABILITY");		
 		lblHistory = new JLabel("TRANSACTION HISTORY");
-		lblInbox = new JLabel("MESSAGE INBOX");
+		lblInbox = new JLabel("CUSTOMER INBOX");
 		lblSubject = new JLabel("Subject:");
-		lblMessage = new JLabel("SEND INQUIRY");
+		lblMessage = new JLabel("SEND ENQUIRY");
 		lblSearch = new JLabel("LOOK UP TRANSACTION");
 		lblResult = new JLabel("Result: ");
 		lblDate = new JLabel("Enter Date: ");
@@ -145,6 +152,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 					//JOptionPane.showMessageDialog(null, "Connection closed.", "GEERS Connection Status", JOptionPane.INFORMATION_MESSAGE);
 				} catch (SQLException e1) {
 					JOptionPane.showMessageDialog(null, "There was an error while exiting the program: " + e1.getSQLState(), "GEERS Connection Status", JOptionPane.ERROR_MESSAGE);
+					logger.error("There was an error while closing the program: " + e1.getMessage());
 				}
 		    }
 		});
@@ -196,7 +204,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		lblLight.setForeground(Color.RED);
 		lblPower.setBounds(810, 150, 210, 20);
 		lblPower.setForeground(Color.RED);
-		lblSound.setBounds(1140, 150, 190, 20);
+		lblSound.setBounds(1140, 150, 200, 20);
 		lblSound.setForeground(Color.RED);
 		lblHistory.setBounds(330, 270, 200, 20);
 		lblSubject.setBounds(785, 555, 200, 20);
@@ -315,8 +323,8 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			BufferedImage bufferedImage = ImageIO.read(new File("./images/geer.png"));
 			logoImage = bufferedImage.getScaledInstance(90, 90, Image.SCALE_DEFAULT);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "An error occured: " + e.getMessage(), JOptionPane.ERROR);
+			logger.error("An error occured: " + e.getMessage());
 		}
 		
 		//Add image to frame
@@ -372,6 +380,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		}
 	}
 	
+	//Getters and Setters
 	public String getId() {
 		return id;
 	}

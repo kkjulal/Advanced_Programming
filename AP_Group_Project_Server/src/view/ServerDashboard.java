@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import server.Server;
 
 public class ServerDashboard implements ActionListener {
@@ -14,7 +17,11 @@ public class ServerDashboard implements ActionListener {
 	private JLabel lblWelcome, lblOption;
 	private JButton btnGenerateData, btnStartServer, btnExit;
 	
+	private static final Logger logger = LogManager.getLogger(ServerDashboard.class);
+	
 	public ServerDashboard() {
+		logger.trace("Entered ServerDashboard class.");
+		
 		frame = new JFrame("GEERS - ServerDashboard");
 		lblWelcome = new JLabel("Welcome back Admin!");
 		lblOption = new JLabel("Please select an option to continue:");

@@ -1,5 +1,7 @@
 package client;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
@@ -8,6 +10,8 @@ import domain.Employee;
 
 public class SessionFactoryBuilder {
 	private static SessionFactory sessionFactory = null;
+	
+	private static final Logger logger = LogManager.getLogger(SessionFactoryBuilder.class);
 	
 	public static SessionFactory getSessionFactory(int opt) {
 		
@@ -24,7 +28,7 @@ public class SessionFactoryBuilder {
 			}
 
 		} catch (HibernateException e) {
-			e.printStackTrace();
+			logger.error("An error occured: " + e.getMessage());
 		}		
 		return sessionFactory;		
 	}
@@ -33,6 +37,7 @@ public class SessionFactoryBuilder {
 		
 		if(sessionFactory != null) {
 			sessionFactory.close();
+			logger.info("Connection closed.");
 		}		
 		
 	}
