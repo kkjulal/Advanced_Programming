@@ -2,13 +2,25 @@ package domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Employee")
 public class Employee implements Serializable {
 	//Declaration and Initialization
+	@Id
+	@Column(name="employee_id")
 	private String id;
+	@Column(name="first_name")
 	private String firstName;
+	@Column(name="last_name")
 	private String lastName;
-	private String extension;
+	@Column(name="email")
 	private String email;
+	@Column(name="password")
 	private String password;	
 	
 	//Constructors
@@ -16,16 +28,14 @@ public class Employee implements Serializable {
 		this.id = "";
 		this.firstName = "";
 		this.lastName = "";
-		this.extension = "";
 		this.email = "";
 		this.password = "";		
 	}
 	
-	public Employee(String id, String firstName, String lastName, String extension, String email, String password) {
+	public Employee(String id, String firstName, String lastName, String email, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.extension = extension;
 		this.email = email;
 		this.password = password;
 	}
@@ -60,14 +70,6 @@ public class Employee implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public String getExtension() {
-		return extension;
-	}
-
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -87,7 +89,7 @@ public class Employee implements Serializable {
 	//Display Method
 	@Override
 	public String toString() {
-		return "Employee ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nExtension: " + extension + "\nEmail: " + email + "";
+		return "Employee ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "";
 	}
 	
 }

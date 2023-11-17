@@ -7,15 +7,17 @@ public class Rental implements Serializable {
 	private String customer;
 	private String equipment;
 	private Date date;
+	private Date startDate;
 	private int duration;
 	private double cost;
 	private String employee;
 	
 	//Constructors
-	public Rental(String customer, String equipment, Date date, int duration, double cost, String employee) {
+	public Rental(String customer, String equipment, Date date, Date startDate, int duration, double cost, String employee) {
 		this.customer = customer;
 		this.equipment = equipment;
 		this.date = date;
+		this.startDate = startDate;
 		this.duration = duration;
 		this.cost = cost;
 		this.employee = employee;
@@ -24,6 +26,14 @@ public class Rental implements Serializable {
 	//Getters and Setters
 	public String getCustomer() {
 		return customer;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
 	public void setCustomer(String customer) {
@@ -73,7 +83,8 @@ public class Rental implements Serializable {
 	//Display
 	@Override
 	public String toString() {
-		return "Customer: " + customer + "\nEquipment: " + equipment + "\nDate: " + date + "\nDuration: " + duration
+		return "Customer: " + customer + "\nEquipment: " + equipment + "\nDate: " + date + "\nStart Date: " + startDate + "\nDuration: " + duration
 				+ "\nCost: " + cost + "\nEmployee: " + employee + "";
 	}
+
 }

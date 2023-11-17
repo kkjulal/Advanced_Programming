@@ -8,12 +8,15 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import domain.Customer;
+import domain.Employee;
+import domain.Equipment;
+import domain.Payment;
+import domain.Rental;
 
 public class Server {
 	private ServerSocket serverSocket;
@@ -22,7 +25,6 @@ public class Server {
 	private ObjectInputStream objIs;
 	private static Connection dbConn = null;
 	private Statement stmt;
-	private ResultSet result = null;
 	
 	public Server() {
 		this.createConnection();
@@ -53,9 +55,9 @@ public class Server {
 				String url = "jdbc:mysql://localhost:3306/geersdb";
 				dbConn = DriverManager.getConnection(url, "root", "");
 				
-				JOptionPane.showMessageDialog(null, "DB Connection Established", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Database Connection Established", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
 			} catch (SQLException ex) {
-				JOptionPane.showMessageDialog(null, "Could not connect to database\n" + ex, "Connection Status", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Could not connect to database: " + ex, "Connection Status", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		return dbConn;		
@@ -72,7 +74,7 @@ public class Server {
 	}
 	
 	private void addCustomer(Customer customer) {
-		String sql = "INSERT INTO dblab.students (id, firstName, lastName, email) VALUES ('" + customer.getId() + "', '" + customer.getFirstName() + "', '" + customer.getLastName() + "', '" + customer.getTelephone() + "', '" + customer.getBalance() + "', '" + customer.getPassword() +"');";
+		String sql = "INSERT INTO geersdb.customer (customer_id, first_name, last_name, telephone, balance, password) VALUES ('" + customer.getId() + "', '" + customer.getFirstName() + "', '" + customer.getLastName() + "', '" + customer.getTelephone() + "', '" + customer.getBalance() + "', '" + customer.getPassword() +"');";
 		try {
 			stmt = dbConn.createStatement();
 			
@@ -88,30 +90,82 @@ public class Server {
 		}
 	}
 	
-	private Customer findCustomer(Customer customer) {
-		Customer cusObj = new Customer();
-		String query = "SELECT * FROM geersdb.customer WHERE password = '" + customer.getPassword() + "';";
+	private void addEmployee(Employee employee) {
+		String sql = "INSERT INTO geersdb.customer (employee_id, first_name, last_name, email) VALUES ('" + employee.getId() + "', '" + employee.getFirstName() + "', '" + employee.getLastName() + "', '" + employee.getEmail() + "');";
 		try {
 			stmt = dbConn.createStatement();
-			result = stmt.executeQuery(query);
-			while (result.next()) {
-				cusObj.setId(result.getString(1));
-				cusObj.setFirstName(result.getString(2));
-				cusObj.setLastName(result.getString(3));
-				cusObj.setTelephone(result.getString(4));
-				cusObj.setBalance(result.getDouble(5));
-				cusObj.setPassword(result.getString(6));
+			
+			if (stmt.executeUpdate(sql) == 1) {
+				objOs.writeObject(true);
+			} else {
+				objOs.writeObject(false);
 			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return cusObj;		
+	}
+	
+	private void addEquipment(Equipment equipment) {
+		String sql = "INSERT INTO geersdb.equipment (equipment_id, name, category, status) VALUES ('" + equipment.getEquipmentId() + "', '" + equipment.getName() + "', '" + equipment.getCategory() + "', '" + equipment.getStatus() + "');";
+		try {
+			stmt = dbConn.createStatement();
+			
+			if (stmt.executeUpdate(sql) == 1) {
+				objOs.writeObject(true);
+			} else {
+				objOs.writeObject(false);
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void addRental(Rental rental) {
+		String sql = "INSERT INTO geersdb.rental (customer, date, start_date, duration, cost, employee) VALUES ('" + rental.getCustomer() + "', '" + rental.getDate() + "', '" + rental.getStartDate() + "', '" + rental.getDuration() + rental.getCost() + rental.getEmployee() + "');";
+		try {
+			stmt = dbConn.createStatement();
+			
+			if (stmt.executeUpdate(sql) == 1) {
+				objOs.writeObject(true);
+			} else {
+				objOs.writeObject(false);
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void addPayment(Payment payment) {
+		String sql = "INSERT INTO geersdb.payment (payment_id, date, customer, amount) VALUES ('" + payment.getPaymentId() + "', '" + payment.getDate() + "', '" + payment.getCustomer() + "', '" + payment.getAmount() + "');";
+		try {
+			stmt = dbConn.createStatement();
+			
+			if (stmt.executeUpdate(sql) == 1) {
+				objOs.writeObject(true);
+			} else {
+				objOs.writeObject(false);
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void waitForRequests() {
 		String action = "";
 		getDatabaseConnection();
 		Customer cusObj = null;
+		Employee empObj = null;
+		Equipment equipObj = null;
+		Rental rentObj = null;
+		Payment payObj = null;
 		try {
 			while (true) {
 				connectionSocket = serverSocket.accept();
@@ -125,11 +179,29 @@ public class Server {
 						addCustomer(cusObj);
 						objOs.writeObject(true);
 					}
-					else if (action.equals("Find Customer")) {
-						Customer customer = (Customer) objIs.readObject();
+					else if (action.equals("Add Employee")) {
+						empObj = (Employee) objIs.readObject();
 						
-						cusObj = findCustomer(customer);
-						objOs.writeObject(cusObj);
+						addEmployee(empObj);
+						objOs.writeObject(true);
+					}
+					else if (action.equals("Add Equipment")) {
+						equipObj = (Equipment) objIs.readObject();
+						
+						addEquipment(equipObj);
+						objOs.writeObject(true);
+					}
+					else if (action.equals("Add Rental")) {
+						rentObj = (Rental) objIs.readObject();
+						
+						addRental(rentObj);
+						objOs.writeObject(true);
+					}
+					else if (action.equals("Add Payment")) {
+						payObj = (Payment) objIs.readObject();
+						
+						addPayment(payObj);
+						objOs.writeObject(true);
 					}
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();

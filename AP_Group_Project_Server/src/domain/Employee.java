@@ -2,34 +2,13 @@ package domain;
 
 import java.io.Serializable;
 
-import javax.swing.JOptionPane;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.swing.JOptionPane;
-
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import server.SessionFactoryBuilder;
-
-@Entity
-@Table(name="Employee")
 public class Employee implements Serializable {
 	//Declaration and Initialization
-	@Id
 	private String id;
-	@Column(name="first_name")
 	private String firstName;
-	@Column(name="last_name")
 	private String lastName;
-	@Column(name="extension")
 	private String extension;
-	@Column(name="email")
 	private String email;
-	@Column(name="password")
 	private String password;	
 	
 	//Constructors

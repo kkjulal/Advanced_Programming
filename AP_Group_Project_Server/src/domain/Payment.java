@@ -8,7 +8,7 @@ public class Payment implements Serializable {
 	private String customer;
 	private String equipment;
 	private String rental;
-	private double amountPaid;
+	private double amount;
 	private Date date;
 
 	//Constructors
@@ -17,17 +17,17 @@ public class Payment implements Serializable {
 		this.customer = "";
 		this.equipment = "";
 		this.rental = "";
-		this.amountPaid = 0;
+		this.amount = 0;
 		this.date = new Date(1, 1, 1979);
 	}
 
-	public Payment(String paymentId, String customer, String equipment, String rental, double amountPaid, Date date) {
+	public Payment(String paymentId, String customer, String equipment, String rental, double amount, Date date) {
 		super();
 		this.paymentId = paymentId;
 		this.customer = customer;
 		this.equipment = equipment;
 		this.rental = rental;
-		this.amountPaid = amountPaid;
+		this.amount = amount;
 		this.date = date;
 	}
 	
@@ -64,12 +64,12 @@ public class Payment implements Serializable {
 		this.rental = rental;
 	}
 
-	public double getAmountPaid() {
-		return amountPaid;
+	public double getAmount() {
+		return amount;
 	}
 
-	public void setAmountPaid(double amountPaid) {
-		this.amountPaid = amountPaid;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 	public Date getDate() {
@@ -83,6 +83,6 @@ public class Payment implements Serializable {
 	@Override
 	public String toString() {
 		return "Payment ID: " + paymentId + "\nCustomer ID: " + customer + "\nEquipment ID: " + equipment + "\nRental ID: "
-				+ rental + "\nAmount Paid: " + amountPaid + "\nDate: " + date + "";
+				+ rental + "\nAmount: " + amount + "\nDate: " + date + "";
 	}
 }

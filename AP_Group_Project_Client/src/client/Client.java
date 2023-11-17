@@ -7,6 +7,10 @@ import java.net.Socket;
 import javax.swing.JOptionPane;
 
 import domain.Customer;
+import domain.Employee;
+import domain.Equipment;
+import domain.Payment;
+import domain.Rental;
 
 public class Client {
 	private ObjectInputStream objIs;
@@ -70,32 +74,75 @@ public class Client {
 		}
 	}
 	
-	public void sendCustomerCredentials(Customer cusObj) {
+	public void sendEmployee(Employee empObj) {
 		try {
-			objOs.writeObject(cusObj);
+			objOs.writeObject(empObj);
 		} catch (IOException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 	
-	@SuppressWarnings("unused")
-	public void receiveLoginResponse() {
+	public void sendEquipment(Equipment equipObj) {
 		try {
-			if (action.equalsIgnoreCase("Find Customer")) {
-				Customer customer = null;
-				
-				
-				customer = (Customer) objIs.readObject();
-				System.out.println(customer);
-				
-				if (customer.getId() != null) {
-					JOptionPane.showMessageDialog(null, "Record found", "GEERS Query Status", JOptionPane.INFORMATION_MESSAGE);
+			objOs.writeObject(equipObj);
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void sendRental(Rental rentObj) {
+		try {
+			objOs.writeObject(rentObj);
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void sendPayment(Payment payObj) {
+		try {
+			objOs.writeObject(payObj);
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void receiveResponse() {
+		try {
+			if (action.equalsIgnoreCase("Add Customer")) {
+				Boolean flag = (Boolean) objIs.readObject();
+				if (flag == true) {
+					JOptionPane.showMessageDialog(null, "Record added successfully", "Customer Record Status", JOptionPane.INFORMATION_MESSAGE);
 				}
-				else
-					JOptionPane.showMessageDialog(null, "Record not found", "GEERS Query Status", JOptionPane.ERROR_MESSAGE);
-				
 			}
+			if (action.equalsIgnoreCase("Add Employee")) {
+				Boolean flag = (Boolean) objIs.readObject();
+				if (flag == true) {
+					JOptionPane.showMessageDialog(null, "Record added successfully", "Customer Record Status", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+			if (action.equalsIgnoreCase("Add Equipment")) {
+				Boolean flag = (Boolean) objIs.readObject();
+				if (flag == true) {
+					JOptionPane.showMessageDialog(null, "Record added successfully", "Customer Record Status", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+			if (action.equalsIgnoreCase("Add Rental")) {
+				Boolean flag = (Boolean) objIs.readObject();
+				if (flag == true) {
+					JOptionPane.showMessageDialog(null, "Record added successfully", "Customer Record Status", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+			if (action.equalsIgnoreCase("Add Payment")) {
+				Boolean flag = (Boolean) objIs.readObject();
+				if (flag == true) {
+					JOptionPane.showMessageDialog(null, "Record added successfully", "Customer Record Status", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+			
 		} catch (ClassCastException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -108,15 +155,12 @@ public class Client {
 	public static void main(String[] args) {
 		
 		Client client = new Client();
-		Customer cusObj = new Customer("1001", "kj123");
+		Customer cusObj = new Customer("1002", "Jaiden", "Julal", "8761234567", 100000, "jj123");
 		
-		client.sendAction("Find Customer");
-		client.sendCustomerCredentials(cusObj);
-		
-		client.receiveLoginResponse();
+		client.sendAction("Add Customer");
+		client.sendCustomer(cusObj);		
+		client.receiveResponse();
 		client.closeConnection();
-		
-		//If customer is found they will be logged into the GEER system.
 
 	}
 

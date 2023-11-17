@@ -2,16 +2,33 @@ package domain;
 
 import java.io.Serializable;
 
-import javax.swing.JOptionPane;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import client.SessionFactoryBuilder;
 
 @SuppressWarnings("serial")
+@Entity
+@Table(name="Customer")
 public class Customer implements Serializable {
 	//Declaration and Initialization
+	@Id
+	@Column(name="customer_id")
 	private String id;
+	@Column(name="first_name")
 	private String firstName;
+	@Column(name="last_name")
 	private String lastName;
+	@Column(name="telephone")
 	private String telephone;
+	@Column(name="balance")
 	private double balance;
+	@Column(name="password")
 	private String password;
 	
 	//Constructors
@@ -100,5 +117,28 @@ public class Customer implements Serializable {
 	public String toString() {
 		return "Customer ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nTelephone: " + telephone + "\nBalance: " + balance + "\nPassword: " + password + "";
 	}
+	
+	//Using Hibernate to find Customer in GEERS database
+	public Customer loginSearch() {
+		Customer cusObj = new Customer();
+		
+		Transaction transaction = null;
+		try {
+			Session session = SessionFactoryBuilder.getSessionFactory(1).getCurrentSession();
+			transaction = (Transaction) session.beginTransaction();			
+			cusObj = (Customer) session.get(Customer.class, this.id);			
+			transaction.commit();
+			session.close();			
+			
+		} catch (HibernateException e) {
+			transaction.rollback();
+			e.printStackTrace();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		}
+		return cusObj;
+	}
+	
 
 }

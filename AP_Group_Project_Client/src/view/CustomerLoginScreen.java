@@ -1,36 +1,33 @@
 package view;
 
+import java.awt.Image;
+import java.awt.PopupMenu;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
-import client.Actions;
-import client.Client;
-import client.DbConn;
 import domain.Customer;
 
-public class CustomerLoginScreen extends Thread implements ActionListener {
-	
-	@Override
-	public void run() {
-		
-	}
+public class CustomerLoginScreen implements ActionListener {
 	
 	private JFrame frame;
 	private JLabel lblHello, lblUsername, lblPassword;
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
 	private JButton btnCancel, btnLogin;
+	private ImageIcon frameIcon;
+	private TrayIcon trayIcon;
+	private Image image, logoImage;
+	private Toolkit toolkit;
+	private PopupMenu popup;
 	
 	public CustomerLoginScreen() {
 
@@ -65,6 +62,12 @@ public class CustomerLoginScreen extends Thread implements ActionListener {
 		btnLogin.setBounds(250, 200, 100, 25);
 		frame.add(btnLogin);
 		
+		toolkit = Toolkit.getDefaultToolkit();
+		image = toolkit.getImage("./images/geer.png");
+		trayIcon = new TrayIcon(image, "Tray Icon");
+		trayIcon.setPopupMenu(popup);
+		popup = new PopupMenu();
+		
 		frame.setSize(500, 325);
 		frame.setLayout(null);
 		frame.setVisible(true);
@@ -78,17 +81,22 @@ public class CustomerLoginScreen extends Thread implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == btnLogin) {
-			Client client = new Client();
 			
 			String id = txtUsername.getText().trim();
 			String password = String.valueOf(txtPassword.getPassword());
 			Customer customer = new Customer(id, password);
-			Actions action = new Actions();
-
-			client.sendAction("Find Student");
-			client.sendCustomer(customer);
-			//client.receiveResponse();
-			client.closeConnection();
+			Customer cusReturn = new Customer();
+			
+			cusReturn = customer.loginSearch(); //Search for customer
+			
+			//If customer is found they will gain access to the dashboard.
+			if(cusReturn.getId().equals(id) && cusReturn.getPassword().equals(password)) {
+				JOptionPane.showMessageDialog(null, "Login successful.", "Customer Login Status", JOptionPane.INFORMATION_MESSAGE);
+				new CustomerDashboard(cusReturn); //passing the customer's id and name to use in various functions
+				
+			}
+			else
+				JOptionPane.showMessageDialog(null, "User not found. Please check your credentials and try again.", "Customer Login Status", JOptionPane.ERROR_MESSAGE);
 			
 		}
 		if (e.getSource() == btnCancel) {
@@ -100,6 +108,4 @@ public class CustomerLoginScreen extends Thread implements ActionListener {
 		new CustomerLoginScreen();
 	}
 	
-
-
 }

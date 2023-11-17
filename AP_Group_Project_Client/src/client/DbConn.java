@@ -6,9 +6,6 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 public class DbConn {
 	
 	private static Connection dbConn = null;
@@ -20,7 +17,7 @@ public class DbConn {
 		if (dbConn == null) {
 			try {
 				dbConn = DriverManager.getConnection(url, "root", ""); //
-				//JOptionPane.showMessageDialog(null, "Sucessfully connected to Database.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
+				//JOptionPane.showMessageDialog(null, "Successfully connected to Database.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
 			} catch (SQLException e) {
 				System.err.println("There was an error while making a connection: " + e.getMessage());
 			}
