@@ -4,8 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Id;
 
-@SuppressWarnings("serial")
 public class Equipment implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6775809575997525191L;
 	//Declaration and Initialization
 	@Id
 	private String equipmentId;

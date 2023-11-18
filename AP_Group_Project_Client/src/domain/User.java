@@ -7,44 +7,41 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Entity
-@Table(name="Employee")
-public class Employee implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1583998836650364115L;
+@Table(name="User")
+public abstract class User implements Serializable {
 	//Declaration and Initialization
 	@Id
-	@Column(name="employee_id")
+	@Column(name="id")
 	private String id;
 	@Column(name="first_name")
 	private String firstName;
 	@Column(name="last_name")
 	private String lastName;
-	@Column(name="email")
-	private String email;
 	@Column(name="password")
-	private String password;	
+	private String password;
+	
+	private static final Logger logger = LogManager.getLogger(Customer.class);
 	
 	//Constructors
-	public Employee() {
+	public User() {
 		this.id = "";
 		this.firstName = "";
 		this.lastName = "";
-		this.email = "";
-		this.password = "";		
+		this.password = "";
 	}
 	
-	public Employee(String id, String firstName, String lastName, String email, String password) {
+	public User(String id, String firstName, String lastName, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
 		this.password = password;
 	}
 	
-	public Employee(String id, String password) {
+	public User(String id, String password) {
 		this.id = id;
 		this.password = password;
 	}
@@ -74,14 +71,6 @@ public class Employee implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -90,10 +79,12 @@ public class Employee implements Serializable {
 		this.password = password;
 	}
 
-	//Display Method
+	//Display
 	@Override
 	public String toString() {
-		return "Employee ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "";
+		return "User ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nPassword: " + password + "";
 	}
 	
+	//Abstract Methods
+	public abstract User login();
 }

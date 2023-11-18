@@ -21,6 +21,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -142,6 +144,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		setProperties();		
 		getTableData();
 		transactionHistory();
+		updateStatus();
 		
 		frame.addWindowListener((WindowListener) new WindowAdapter() {
 		    public void windowClosing(WindowEvent e) {
@@ -349,7 +352,6 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnSearch) {
-			System.out.println("name " + this.getFirstName());
 			String id = txtResult.getText().trim();
 			String date = txtDate.getText().trim();
 
@@ -358,14 +360,13 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		}
 		if (e.getSource() == btnMessage) {
 			//Gets current date in format yyyy-mm-dd
-			Date date = Calendar.getInstance().getTime();  
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
-			String strDate = dateFormat.format(date);
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
+			LocalDateTime now = LocalDateTime.now();
 	        
 			String subject = txtSubject.getText().trim();
 			String message = txtMessage.getText().trim();
 			
-			sendMessage(this.id, strDate, subject, message);		
+			sendMessage(this.id, now, subject, message);		
 		}
 		if (e.getSource() == btnLogout) {
 			
@@ -377,6 +378,9 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		}
+		if (e.getSource() == btnCalculate) {
+			
 		}
 	}
 	
@@ -419,8 +423,13 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				+ balance + "]";
 	}
 	
+	//Method used to calculate Quote
+	public void calculateQuote() {
+		
+	}
+	
 	//Method used to send GEER an inquiry message
-	public void sendMessage(String sender, String date, String subject, String message) {
+	public void sendMessage(String sender, LocalDateTime date, String subject, String message) {
 		String insertSql = "INSERT into geersdb.company_inbox (sender, date, subject, body, status) values ('" + sender + "','" + date + "','" + subject + "','" + message + "','unread');";
 		
 		try {
@@ -436,6 +445,26 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	//Method used to update message status
+	public void updateStatus() {
+		String insertSql = "UPDATE geersdb.customer_inbox SET status = 'seen' WHERE status = 'unseen';";
+		
+		try {
+			stmt = dbConn.createStatement();
+			int inserted = stmt.executeUpdate(insertSql);
+			
+			if (inserted == 1) {
+				//JOptionPane.showMessageDialog(null, "Message Sent.", "Geers Messenger Status", JOptionPane.INFORMATION_MESSAGE);
+			}
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
 		}
 	}
 	
@@ -475,11 +504,11 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	
 	//Method used to search customer records for a specific transaction using their id and entered date
 	public void searchTransaction(String date2) {
-		String query = "SELECT rental.date, rental.duration, rental.cost, GROUP_CONCAT(rented_equipments.equipment) AS 'equipments rented' FROM rental INNER JOIN rented_equipments ON rental.customer = rented_equipments.customer INNER JOIN customer ON customer.customer_id = rental.customer WHERE rental.customer = '" + id + "' AND rental.date = '" + date2 +"'";
+		String sql = "SELECT r.date AS 'date created', r.customer, r.start_date AS 'reserved date', r.duration, r.cost AS 'daily cost', r.duration*r.cost as 'total cost', GROUP_CONCAT(DISTINCT re.equipment) as 'equipments rented' FROM rental r INNER JOIN rented_equipments re ON r.date = re.date WHERE r.date = '"+date2+"' GROUP BY r.date;";
 		
 		try {
 			stmt = dbConn.createStatement();
-			ResultSet result = stmt.executeQuery(query);
+			ResultSet result = stmt.executeQuery(sql);
 			ResultSetMetaData rsmd = (ResultSetMetaData) result.getMetaData();
 			DefaultTableModel model = (DefaultTableModel) tblSearch.getModel();
 			
@@ -489,39 +518,36 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			for(int i=0; i<cols; i++)
 				colName[i]=rsmd.getColumnName(i+1);
 			model.setColumnIdentifiers(colName);
-
-			String date = "", duration, cost, equipments;
-			int cnt = 0;
+			
+			String date, customer, duration, startDate, cost, totalCost, equipments;
 			while(result.next()) {
 				date = result.getString(1);
-				duration = result.getString(2);
-				cost = result.getString(3);
-				equipments = result.getString(4);
+				customer = result.getString(2);
+				startDate = result.getString(3);
+				duration = result.getString(4);
+				cost = result.getString(5);
+				totalCost = result.getString(6);
+				equipments = result.getString(7);
 				
-				String[] row = {date, duration, cost, equipments};
-				model.addRow(row);
-				cnt++;
-			}
-			
-			if (date == null) {
-				txtResult.setText("No record found."); //sets result count
-			}
-			else
-				txtResult.setText("Record found."); //sets result count
+				String[] row = {date, customer, startDate, duration, cost, totalCost, equipments};
+				model.addRow(row);				
+			}								
 			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Search Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Search Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "There was an error: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
 		}
 	}
 	
 	public void transactionHistory() {
-		String query = "SELECT rental.date, rental.duration, rental.cost, GROUP_CONCAT(rented_equipments.equipment) AS 'equipments rented' FROM rental INNER JOIN rented_equipments ON rental.customer = rented_equipments.customer INNER JOIN customer ON customer.customer_id = rental.customer WHERE rental.customer = '" + id + "' AND rental.date = rented_equipments.date;";
+		String sql = "SELECT r.date AS 'date created', r.customer, r.start_date AS 'reserved date', r.duration, r.cost AS 'daily cost', r.duration*r.cost as 'total cost', GROUP_CONCAT(DISTINCT re.equipment) as 'equipments rented' FROM rental r INNER JOIN rented_equipments re ON r.date = re.date GROUP BY r.date;";
 		
 		try {
 			stmt = dbConn.createStatement();
-			ResultSet result = stmt.executeQuery(query);
+			ResultSet result = stmt.executeQuery(sql);
 			ResultSetMetaData rsmd = (ResultSetMetaData) result.getMetaData();
 			DefaultTableModel model = (DefaultTableModel) tblHistory.getModel();
 			
@@ -532,21 +558,26 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				colName[i]=rsmd.getColumnName(i+1);
 			model.setColumnIdentifiers(colName);
 			
-			String date, duration, cost, equipments;
+			String date, customer, duration, startDate, cost, totalCost, equipments;
 			while(result.next()) {
 				date = result.getString(1);
-				duration = result.getString(2);
-				cost = result.getString(3);
-				equipments = result.getString(4);
+				customer = result.getString(2);
+				startDate = result.getString(3);
+				duration = result.getString(4);
+				cost = result.getString(5);
+				totalCost = result.getString(6);
+				equipments = result.getString(7);
 				
-				String[] row = {date, duration, cost, equipments};
+				String[] row = {date, customer, startDate, duration, cost, totalCost, equipments};
 				model.addRow(row);				
 			}								
 			
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "There was an error: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
 		}
 	}
 	

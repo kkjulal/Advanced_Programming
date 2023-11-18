@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Desktop.Action;
 import java.awt.Image;
 import java.awt.PopupMenu;
 import java.awt.Toolkit;
@@ -18,13 +19,13 @@ import javax.swing.JTextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import client.Actions;
 import domain.Customer;
 
-public class CustomerLoginScreen extends Thread  implements ActionListener {
+public class CustomerLoginScreen extends Thread implements ActionListener {
 	
 	@Override
-	public void run() { //Multi-threading Implementation
-		System.out.println("Customer Thread ID: "+ Thread.currentThread().getId());
+	public void run() {
 		new CustomerLoginScreen();
 	}
 	
@@ -99,8 +100,9 @@ public class CustomerLoginScreen extends Thread  implements ActionListener {
 			String password = String.valueOf(txtPassword.getPassword());
 			Customer customer = new Customer(id, password);
 			Customer cusReturn = new Customer();
+			Actions action = new Actions();
 			
-			cusReturn = customer.loginSearch(); //Search for customer
+			cusReturn = action.loginCustomer(id); //Search for customer
 			
 			//If customer is found they will gain access to the dashboard.
 			if(cusReturn.getId().equals(id) && cusReturn.getPassword().equals(password)) {
@@ -116,10 +118,6 @@ public class CustomerLoginScreen extends Thread  implements ActionListener {
 		if (e.getSource() == btnCancel) {
 			new WelcomeScreen();
 		}		
-	}
-	
-	public static void main(String[] args) {
-		new CustomerLoginScreen();
 	}
 	
 }

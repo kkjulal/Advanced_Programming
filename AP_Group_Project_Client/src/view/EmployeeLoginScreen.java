@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import client.Actions;
 import domain.Employee;
 
 public class EmployeeLoginScreen extends Thread implements ActionListener {
@@ -99,8 +100,10 @@ public class EmployeeLoginScreen extends Thread implements ActionListener {
 			String password = String.valueOf(txtPassword.getPassword());
 			Employee employee = new Employee(id, password);
 			Employee empReturn = new Employee();
+
+			Actions action = new Actions();
 			
-			empReturn = employee.loginSearch(); //Search for customer
+			empReturn = action.loginEmployee(id); //Search for customer
 			
 			//If employee is found they will gain access to their dashboard.
 			if(empReturn.getId().equals(id) && empReturn.getPassword().equals(password)) {
@@ -108,16 +111,14 @@ public class EmployeeLoginScreen extends Thread implements ActionListener {
 				logger.info("Employee " + id + "logged in.");
 				new EmployeeDashboard(empReturn); //passing the employee's id and name to use in various functions	
 			}
-			else
+			else {
 				JOptionPane.showMessageDialog(null, "User not found. Please check your credentials and try again.", "Employee Login Status", JOptionPane.ERROR_MESSAGE);
 				logger.info("Employee logged in failed. ID used: " + id);
+			}
 		}
 		if (e.getSource() == btnCancel) {
 			new WelcomeScreen();
 		}		
 	}
 	
-	public static void main(String[] args) {
-		new CustomerLoginScreen();
-	}
 }

@@ -17,11 +17,13 @@ import org.hibernate.Transaction;
 import client.SessionFactoryBuilder;
 import view.EmployeeLoginScreen;
 
-
-@SuppressWarnings("serial")
 @Entity
 @Table(name="Customer")
 public class Customer implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//Declaration and Initialization
 	@Id
 	@Column(name="customer_id")
@@ -36,8 +38,6 @@ public class Customer implements Serializable {
 	private double balance;
 	@Column(name="password")
 	private String password;
-	
-	private static final Logger logger = LogManager.getLogger(Customer.class);
 	
 	//Constructors
 	public Customer() {
@@ -124,30 +124,6 @@ public class Customer implements Serializable {
 	@Override
 	public String toString() {
 		return "Customer ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nTelephone: " + telephone + "\nBalance: " + balance + "\nPassword: " + password + "";
-	}
-	
-	//Using Hibernate to find Customer in GEERS database
-	public Customer loginSearch() {
-		Customer cusObj = new Customer();
-		
-		Transaction transaction = null;
-		try {
-			Session session = SessionFactoryBuilder.getSessionFactory(1).getCurrentSession();
-			transaction = (Transaction) session.beginTransaction();			
-			cusObj = (Customer) session.get(Customer.class, this.id);			
-			transaction.commit();
-			session.close();			
-		} catch (HibernateException e) {
-			transaction.rollback();
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Class", JOptionPane.ERROR_MESSAGE);
-			logger.error("An error occured: " + e.getMessage());
-		} catch (Exception e) {
-			transaction.rollback();
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Class", JOptionPane.ERROR_MESSAGE);
-			logger.error("An error occured: " + e.getMessage());
-		}
-		return cusObj;
-	}
-	
+	}	
 
 }

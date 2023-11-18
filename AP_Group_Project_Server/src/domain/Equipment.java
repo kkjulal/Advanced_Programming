@@ -2,8 +2,11 @@ package domain;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class Equipment implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8096163488672115214L;
 	//Declaration and Initialization
 	private String equipmentId;
 	private String name;

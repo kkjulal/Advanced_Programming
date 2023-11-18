@@ -7,15 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import client.SessionFactoryBuilder;
-
 @Entity
 @Table(name="Employee")
 public class Employee implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1583998836650364115L;
 	//Declaration and Initialization
 	@Id
 	@Column(name="employee_id")
@@ -96,28 +94,6 @@ public class Employee implements Serializable {
 	@Override
 	public String toString() {
 		return "Employee ID: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "";
-	}
-	
-	//Using Hibernate to find Customer in GEERS database
-	public Employee loginSearch() {
-		Employee empObj = new Employee();
-		
-		Transaction transaction = null;
-		try {
-			Session session = SessionFactoryBuilder.getSessionFactory(2).getCurrentSession();
-			transaction = (Transaction) session.beginTransaction();			
-			empObj = (Employee) session.get(Employee.class, this.id);			
-			transaction.commit();
-			session.close();			
-			
-		} catch (HibernateException e) {
-			transaction.rollback();
-			e.printStackTrace();
-		} catch (Exception e) {
-			transaction.rollback();
-			e.printStackTrace();
-		}
-		return empObj;
 	}
 	
 }

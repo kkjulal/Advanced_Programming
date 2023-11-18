@@ -34,7 +34,7 @@ public class Client {
 			JOptionPane.showMessageDialog(null, "Client server connection created.", "Connection Status", JOptionPane.INFORMATION_MESSAGE);
 			logger.info("Client server connection created.");
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -46,7 +46,7 @@ public class Client {
 			//Create an output stream to send data to the server
 			objOs = new ObjectOutputStream(connectionSocket.getOutputStream());
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -67,7 +67,7 @@ public class Client {
 		try {
 			objOs.writeObject(action);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -76,7 +76,7 @@ public class Client {
 		try {
 			objOs.writeObject(cusObj);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -85,7 +85,7 @@ public class Client {
 		try {
 			objOs.writeObject(empObj);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -94,7 +94,7 @@ public class Client {
 		try {
 			objOs.writeObject(equipObj);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -103,7 +103,7 @@ public class Client {
 		try {
 			objOs.writeObject(rentObj);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -112,7 +112,7 @@ public class Client {
 		try {
 			objOs.writeObject(payObj);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Connection Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -156,27 +156,15 @@ public class Client {
 			}
 			
 		} catch (ClassCastException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Record Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Record Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		} catch (ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Record Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Record Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Record Status", JOptionPane.ERROR);
+			JOptionPane.showMessageDialog(null, "An error occured: " + e.getMessage(), "Customer Record Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
-	}
-	
-	public static void main(String[] args) {
-		
-		Client client = new Client();
-		Customer cusObj = new Customer("1002", "Jaiden", "Julal", "8761234567", 100000, "jj123");
-		
-		client.sendAction("Add Customer");
-		client.sendCustomer(cusObj);		
-		client.receiveResponse();
-		client.closeConnection();
-
 	}
 
 }

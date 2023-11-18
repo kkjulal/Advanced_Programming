@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 public class WelcomeScreen implements ActionListener {
 	
+	
 	private JFrame frame;
 	private JLabel lblWelcome, lblUser;
 	private JButton btnCustomer, btnEmployee, btnExit;
@@ -53,8 +54,9 @@ public class WelcomeScreen implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 		if (e.getSource() == btnCustomer) {
-			CustomerLoginScreen t1 = new CustomerLoginScreen();			
+			CustomerLoginScreen t1 = new CustomerLoginScreen();	
 			t1.start();
 		}
 		if (e.getSource() == btnEmployee) {

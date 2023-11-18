@@ -3,6 +3,10 @@ package domain;
 import java.io.Serializable;
 
 public class Payment implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8776402468662556224L;
 	//Declaration and Initialization
 	private String paymentId;
 	private String customer;

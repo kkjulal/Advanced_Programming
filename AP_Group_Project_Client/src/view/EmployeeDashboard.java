@@ -21,12 +21,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
 import javax.imageio.ImageIO;
+import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -67,16 +71,21 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 	private JFrame frame;
 	
 	private JLabel lblHeading, lblImage, lblWelcome, lblEquipment, lblInbox, lblMessage;
-	private JLabel lblSubject, lblRental, lblReceiver;
+	private JLabel lblSubject, lblRental, lblReceiver, lblBook;
+	private JLabel lblCustomer, lblDate, lblRSV, lblDuration, lblCost, lblEmployee;
 	
 	private JTable tblEquipment, tblRental, tblInbox;
 	
 	private JScrollPane paneEquipment, paneRental, paneInbox, paneMessage;
 	
 	private JTextField txtReceiver, txtSubject;
+	private JTextField txtCustomer, txtDate, txtRSV, txtDuration, txtCost, txtEmployee;
+	
 	private JTextArea txtMessage;
 	
-	private JButton btnLogout, btnMessage;	
+	private JButton btnLogout, btnMessage;
+	
+	private JComboBox<String> comboBoxCustomer;
 	
 	private TrayIcon trayIcon;
 	private Image image;
@@ -109,20 +118,35 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 		lblReceiver = new JLabel("Receiver ID:");
 		lblSubject = new JLabel("Subject:");
 		lblMessage = new JLabel("SEND MESSAGE");
+		lblBook = new JLabel("BOOK EQUIPMENT");
+		
+		lblCustomer = new JLabel("Select Customer");
+		lblDate = new JLabel("Current Date");
+		lblRSV = new JLabel("Booking Date");
+		lblDuration = new JLabel("Duration");
+		lblEquipment = new JLabel();
+		lblCost = new JLabel();
+		lblEmployee = new JLabel();
 		
 		txtReceiver = new JTextField("");
-		txtSubject = new JTextField();
+		txtSubject = new JTextField();		
+		txtCustomer = new JTextField();
+		txtDate = new JTextField();
+		txtRSV = new JTextField();
+		txtDuration = new JTextField();
+		txtCost = new JTextField();
+		txtEmployee = new JTextField();
+		
 		txtMessage = new JTextArea();
 		
 		btnLogout = new JButton("Logout");
 		btnMessage = new JButton("Send Message");
 		
-		
-		
 		setProperties();
 		equipments();
 		rental();
 		inbox();
+		updateStatus();
 		
 		frame.addWindowListener((WindowListener) new WindowAdapter() {
 		    public void windowClosing(WindowEvent e) {
@@ -141,6 +165,25 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 	}
 	
 	public void setProperties() {
+		
+
+		//Add ComboBox to frame
+		ResultSet rs = getCustomerId();
+		comboBoxCustomer = new JComboBox<String>();
+		try {
+			while(rs.next()) {
+				comboBoxCustomer.addItem(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		comboBoxCustomer.setSelectedIndex(1);
+		comboBoxCustomer.setBounds(750, 400, 100, 20);
+		frame.add(comboBoxCustomer);
+		
+//		txtCustomer.setBounds(750, 400, 100, 20);
+//		frame.add(txtCustomer);
 		
 		txtReceiver.setBounds(840, 530, 100, 20);
 		frame.add(txtReceiver);
@@ -191,6 +234,10 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 		lblMessage.setBounds(870, 500, 200, 20);
 		lblMessage.setForeground(Color.BLUE);
 		frame.add(lblMessage);
+		
+		lblBook.setBounds(1000, 340, 200, 20);
+		lblBook.setForeground(Color.BLUE);
+		frame.add(lblBook);
 		
 		//Equipments Table	
 		tblEquipment = new JTable();		
@@ -249,15 +296,14 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 		
 		if (e.getSource() == btnMessage) {
 			//Gets current date in format yyyy-mm-dd
-			Date strDate = Calendar.getInstance().getTime();  
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
-			String date = dateFormat.format(strDate);
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
+			LocalDateTime now = LocalDateTime.now();
 	        
 			String customer = txtReceiver.getText().trim();
 			String subject = txtSubject.getText().trim();
 			String message = txtMessage.getText().trim();
 			
-			sendMessage(customer, date, subject, message);		
+			sendMessage(this.getId(), customer, now, subject, message);		
 		}
 		
 		if (e.getSource() == btnLogout) {			
@@ -299,9 +345,30 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 		this.email = email;
 	}
 	
+	//Method to get Customer Ids
+	public ResultSet getCustomerId() {
+
+		ResultSet result = null;
+		
+		String sql = "SELECT customer_id FROM customer;";
+		
+		try {
+			stmt = dbConn.createStatement();
+			result = stmt.executeQuery(sql);			
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
+		}
+		return result;
+	}
+	
 	//Method used to send customers messages about inquiries
-	public void sendMessage(String customer, String date, String subject, String message) {
-		String insertSql = "INSERT into geersdb.customer_inbox (date, sender, customer, subject, body, status) values ('" + date + "','" + this.getId() + "','" + customer + "','" + subject + "','" + message + "','unseen');";
+	public void sendMessage(String sender, String customer, LocalDateTime date, String subject, String message) {
+		String insertSql = "INSERT INTO geersdb.customer_inbox (sender, customer, date, subject, body, status) VALUES ('" + sender + "','" + customer + "','" + date + "','" + subject + "','" + message + "','unseen');";
 		
 		try {
 			stmt = dbConn.createStatement();
@@ -312,6 +379,26 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 			}
 			else
 				JOptionPane.showMessageDialog(null, "There was an error.", "Geers Messenger Status", JOptionPane.INFORMATION_MESSAGE);
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
+		}
+	}
+	
+	//Method used to send customers messages about inquiries
+	public void updateStatus() {
+		String insertSql = "UPDATE geersdb.company_inbox SET status = 'seen' WHERE status = 'unseen';";
+		
+		try {
+			stmt = dbConn.createStatement();
+			int inserted = stmt.executeUpdate(insertSql);
+			
+			if (inserted == 1) {
+				//JOptionPane.showMessageDialog(null, "Message Sent.", "Geers Messenger Status", JOptionPane.INFORMATION_MESSAGE);
+			}
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("SQL Exception: " + e.getMessage());
@@ -360,7 +447,6 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 	
 	//Method to get rental requests
 	public void rental() {
-		//String sql = "SELECT r.date, r.customer, r.duration, r.start_date, r.duration*r.cost as 'total cost', GROUP_CONCAT(DISTINCT re.equipment) AS 'equipments rented' FROM rental r INNER JOIN rented_equipments re ON re.date = re.date ORDER BY r.date DESC;";
 		
 		String sql = "SELECT r.date AS 'date created', r.customer, r.start_date AS 'reserved date', r.duration, r.cost AS 'daily cost', r.duration*r.cost as 'total cost', GROUP_CONCAT(DISTINCT re.equipment) as 'equipments rented' FROM rental r INNER JOIN rented_equipments re ON r.date = re.date GROUP BY r.date;";
 		

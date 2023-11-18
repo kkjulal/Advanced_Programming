@@ -1,5 +1,7 @@
 package domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,7 +9,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Rental")
-public class Rental {
+public class Rental implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4427545636960380752L;
 	//Declaration and Initialization
 	@Id
 	@Column(name="customer_id")

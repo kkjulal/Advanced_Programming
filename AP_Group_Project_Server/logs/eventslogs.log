@@ -204,3 +204,20 @@
 [TRACE] 2023-11-17 14:52:40.263 [main] ServerDriver - Server application started.
 [TRACE] 2023-11-17 14:52:40.267 [main] Server - Entered Server class.
 [INFO ] 2023-11-17 14:52:42.046 [main] Server - Database Connection Established.
+[TRACE] 2023-11-17 18:22:53.997 [main] ServerDriver - Server application started.
+[TRACE] 2023-11-17 18:22:54.012 [main] Server - Entered Server class.
+[INFO ] 2023-11-17 18:22:55.809 [main] Server - Database Connection Established.
+[ERROR] 2023-11-17 18:24:18.766 [main] Server - There was an error: java.io.InvalidClassException: domain.Customer; local class incompatible: stream classdesc serialVersionUID = -858916877905308635, local class serialVersionUID = 3647206738098843633
+[TRACE] 2023-11-17 18:26:59.213 [main] Server - Entered Server class.
+[INFO ] 2023-11-17 18:27:00.731 [main] Server - Database Connection Established.
+[ERROR] 2023-11-17 18:27:13.671 [main] Server - There was an error: java.io.InvalidClassException: domain.Customer; local class incompatible: stream classdesc serialVersionUID = -858916877905308635, local class serialVersionUID = 3647206738098843633
+[TRACE] 2023-11-17 18:40:44.390 [main] ServerDriver - Server application started.
+[TRACE] 2023-11-17 18:40:44.394 [main] Server - Entered Server class.
+[INFO ] 2023-11-17 18:40:46.049 [main] Server - Database Connection Established.
+[TRACE] 2023-11-17 21:49:25.053 [main] ServerDriver - Server application started.
+[TRACE] 2023-11-17 21:49:25.165 [main] Server - Entered Server class.
+[INFO ] 2023-11-17 21:49:28.236 [main] Server - Database Connection Established.
+[TRACE] 2023-11-17 21:49:55.908 [main] ServerDriver - Server application started.
+[TRACE] 2023-11-17 21:50:56.299 [AWT-EventQueue-0] Server - Entered Server class.
+[INFO ] 2023-11-17 21:50:58.522 [AWT-EventQueue-0] Server - Database Connection Established.
+[TRACE] 2023-11-17 22:17:37.968 [main] ServerDriver - Server application started.

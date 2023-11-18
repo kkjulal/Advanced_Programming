@@ -3,6 +3,10 @@ package domain;
 import java.io.Serializable;
 
 public class Rental implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4412211134326205179L;
 	//Declaration and Initialization
 	private String customer;
 	private String equipment;

@@ -7,3 +7,91 @@
 [TRACE] 2023-11-17 14:52:52.442 [main] ClientDriver - Client application started
 [TRACE] 2023-11-17 14:53:28.760 [main] ClientDriver - Client application started
 [TRACE] 2023-11-17 14:59:03.241 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 15:13:53.952 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 15:14:18.969 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 15:22:55.419 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 15:23:19.438 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 15:24:16.167 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 15:47:12.519 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 15:47:42.175 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 15:50:48.255 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 15:51:08.721 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 15:52:44.296 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 15:53:07.170 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 16:06:04.768 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 16:08:13.412 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 16:09:50.665 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 16:20:17.340 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 16:25:40.071 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 16:29:35.636 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 16:29:57.992 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 16:30:26.407 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 16:30:41.981 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 16:36:09.399 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 16:36:40.193 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 16:37:09.653 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 16:38:20.204 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 16:44:26.018 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 16:47:49.358 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 18:23:23.210 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 18:24:07.176 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 18:24:08.554 [main] Client - Client server connection created.
+[ERROR] 2023-11-17 18:26:49.763 [main] Client - An error occured: Connection refused: connect
+[INFO ] 2023-11-17 18:27:06.467 [main] Client - Client server connection created.
+[ERROR] 2023-11-17 18:27:18.754 [main] Client - An error occured: Connection reset
+[INFO ] 2023-11-17 18:41:54.711 [main] Client - Client server connection created.
+[INFO ] 2023-11-17 18:41:55.890 [main] Client - Customer Record added successfully
+[INFO ] 2023-11-17 19:02:56.690 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:07:36.500 [main] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 19:20:28.631 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 19:20:42.728 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 19:24:33.627 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 19:24:52.669 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 19:30:51.604 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 19:31:33.493 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 19:35:42.815 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 19:35:59.497 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 19:44:42.936 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 19:45:02.058 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:47:59.594 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:50:35.633 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:51:19.589 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:52:11.529 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:52:35.769 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:52:55.200 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:53:16.629 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:53:39.266 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:53:58.182 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 19:54:24.595 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:04:41.779 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:04:59.106 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:05:11.863 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:35:43.386 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:36:05.008 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:37:22.514 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:37:55.687 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:39:19.259 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:43:33.812 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:46:31.579 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:46:58.044 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:49:34.781 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:50:08.405 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:55:53.808 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:57:27.690 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 20:58:06.286 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 21:43:27.653 [main] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 21:48:31.050 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 21:51:18.674 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 21:52:00.883 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 21:54:25.650 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 21:56:14.417 [main] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 22:02:19.189 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 22:02:37.694 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 22:04:14.234 [main] DbConn - Successfully connected to Database.
+[INFO ] 2023-11-17 22:06:15.478 [main] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 22:08:06.144 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 22:08:26.360 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 22:13:10.244 [main] ClientDriver - Client application started
+[INFO ] 2023-11-17 22:13:37.139 [AWT-EventQueue-0] DbConn - Successfully connected to Database.
+[TRACE] 2023-11-17 22:16:26.638 [main] ClientDriver - Client application started
+[TRACE] 2023-11-17 22:18:25.028 [main] ClientDriver - Client application started
