@@ -8,6 +8,8 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -33,7 +35,11 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -46,6 +52,7 @@ import org.apache.logging.log4j.Logger;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
 import domain.Customer;
+import net.sourceforge.jdatepicker.JDatePicker;
 import client.DbConn;
 
 @SuppressWarnings("serial")
@@ -59,7 +66,6 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	//Declaration and Initialization
 	private String id;
 	private String firstName;
-	private String lastName;
 	private double balance;
 	
 	private static final Logger logger = LogManager.getLogger(EmployeeDashboard.class);
@@ -71,10 +77,11 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	private JFrame frame;
 	private JButton btnSearch, btnMessage, btnLogout, btnCalculate;
 	
-	private JLabel lblStage, lblLight, lblPower, lblSound, lblHistory, lblSearch, lblResult, lblDate, lblSubject, lblMessage, lblInbox, lblImage, lblWelcome, lblQuote;
+	private JLabel lblStage, lblLight, lblPower, lblSound, lblHistory, lblSearch, lblResult, lblResult2, lblDate, lblSubject, lblMessage, lblInbox, lblImage, lblWelcome, lblQuote;
 	private JLabel lblSelectEquipment, lblQuoteDate, lblHeading, lblBalance, lblCost, lblDuration;
-	private JTextField txtResult, txtSender, txtDate, txtSubject, txtDuration, txtQuoteDate, txtCost;
+	private JTextField txtSender, txtDate, txtSubject, txtDuration, txtQuoteDate, txtCost;
 	private JTextArea txtMessage;
+	
 	private JTable tblStage, tblLight, tblPower, tblSound, tblHistory, tblSearch, tblInbox;
 	private JTable availablStage, availableLight, availablePower, availableSound;
 	private JScrollPane paneStage, paneLight, panePower, paneSound, paneHistory, paneSearch, paneInbox, paneMessage;	
@@ -87,28 +94,45 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	private Toolkit toolkit;
 	private PopupMenu popup;
 	
+	private JMenuBar menuBar;
+	private JMenu fileMenu, aboutMenu;
+	private JMenuItem exportItem, exitItem;
+	
 	public CustomerDashboard() {
 		
 	}
 	
 	public CustomerDashboard(Customer cusObj) {
+		
 		logger.trace("Entered CustomerDashboard class.");
 		
 		this.dbConn = DbConn.getConnection();
 		
 		this.id = cusObj.getId();
 		this.firstName = cusObj.getFirstName();
-		this.lastName = cusObj.getLastName();
 		this.balance = cusObj.getBalance();
 		
 		frame = new JFrame("GEERS - Customer Dashboard");
+		
+		menuBar = new JMenuBar();
+		fileMenu = new JMenu("File");
+		aboutMenu = new JMenu("About");
+		exportItem = new JMenuItem("Export");
+		exitItem = new JMenuItem("Exit");
+		
+		fileMenu.add(exportItem);
+		fileMenu.add(exitItem);
+		
+		menuBar.add(fileMenu);
+		menuBar.add(aboutMenu);
+		
+		frame.setJMenuBar(menuBar);
 		
 		btnLogout = new JButton("Logout");
 		btnSearch = new JButton("Search");
 		btnMessage = new JButton("Send Message");
 		btnCalculate = new JButton("Calculate");
 		
-		txtResult = new JTextField();
 		txtDate = new JTextField();
 		txtSubject = new JTextField();
 		txtMessage = new JTextArea();
@@ -123,10 +147,11 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		lblHistory = new JLabel("TRANSACTION HISTORY");
 		lblInbox = new JLabel("CUSTOMER INBOX");
 		lblSubject = new JLabel("Subject:");
-		lblMessage = new JLabel("SEND ENQUIRY");
+		lblMessage = new JLabel("SEND MESSAGE");
 		lblSearch = new JLabel("LOOK UP TRANSACTION");
-		lblResult = new JLabel("Result: ");
-		lblDate = new JLabel("Enter Date: ");
+		lblResult = new JLabel("Result:");
+		lblResult2 = new JLabel(); 
+		lblDate = new JLabel("Enter Date 'yyyy-mm-dd':");
 		lblWelcome = new JLabel();
 		lblQuote = new JLabel("GET QUOTE");
 		lblSelectEquipment = new JLabel("Select Equipment:");
@@ -144,6 +169,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		setProperties();		
 		getTableData();
 		transactionHistory();
+		getAvailableStage();
 		updateStatus();
 		
 		frame.addWindowListener((WindowListener) new WindowAdapter() {
@@ -151,7 +177,6 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				try {
 					stmt.close();
 					dbConn.close();
-					new CustomerLoginScreen();
 					//JOptionPane.showMessageDialog(null, "Connection closed.", "GEERS Connection Status", JOptionPane.INFORMATION_MESSAGE);
 				} catch (SQLException e1) {
 					JOptionPane.showMessageDialog(null, "There was an error while exiting the program: " + e1.getSQLState(), "GEERS Connection Status", JOptionPane.ERROR_MESSAGE);
@@ -162,6 +187,11 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	}
 	
 	public void setProperties() {
+		
+		menuBar.add(fileMenu);
+		menuBar.add(aboutMenu);
+		frame.setJMenuBar(menuBar);
+		frame.setVisible(true);
 		
 		btnLogout.setBounds(1200, 50, 150, 25);
 		frame.add(btnLogout);
@@ -175,11 +205,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		btnCalculate.setBounds(1200, 660, 150, 25);
 		frame.add(btnCalculate);
 		
-		txtResult.setBounds(910, 350, 150, 25);
-		frame.add(txtResult);
-		
 		txtDate.setBounds(910, 380, 150, 25);
-		txtDate.setText("yyyy-mm-dd");
 		frame.add(txtDate);
 		
 		txtSubject.setBounds(840, 555, 210, 20);
@@ -215,8 +241,10 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		lblMessage.setBounds(870, 530, 200, 20);
 		lblMessage.setForeground(Color.BLUE);
 		lblSearch.setBounds(1000, 270, 200, 20);
-		lblResult.setBounds(800, 350, 200, 20);
-		lblDate.setBounds(800, 380, 200, 20);
+		lblResult.setBounds(870, 350, 200, 20);
+		lblResult2.setBounds(940, 350, 200, 20);
+		lblResult2.setForeground(Color.BLUE);
+		lblDate.setBounds(770, 380, 200, 20);
 		lblWelcome.setBounds(225, 50, 500, 100);
 		lblWelcome.setFont(new Font("Arial", Font.BOLD, 30));
 		lblWelcome.setText("Welcome back " + this.firstName + "!");
@@ -244,6 +272,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		frame.add(lblMessage);
 		frame.add(lblSearch);
 		frame.add(lblResult);
+		frame.add(lblResult2);
 		frame.add(lblDate);
 		frame.add(lblWelcome);
 		frame.add(lblQuote);
@@ -253,23 +282,6 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		frame.add(lblQuoteDate);
 		frame.add(lblHeading);
 		frame.add(lblBalance);		
-		
-		//Add Checkbox to frame
-		cbStage.setBounds(1100, 450, 75, 20);
-		cbLighting.setBounds(1175, 450, 80, 20);
-		cbPower.setBounds(1255, 450, 65, 20);
-		cbSound.setBounds(1320, 450, 75, 20);
-		frame.add(cbStage);
-		frame.add(cbLighting);
-		frame.add(cbPower);
-		frame.add(cbSound);
-		
-		//Add ComboBox to frame
-		String equipments[] = {"Staging", "Lighting", "Power", "Sound"};
-		comboBox = new JComboBox<String>(equipments);
-		comboBox.setSelectedIndex(1);
-		comboBox.setBounds(1225, 500, 100, 20);
-		frame.add(comboBox);
 		
 		//Stage Equipments Table	
 		tblStage = new JTable();		
@@ -330,6 +342,43 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			logger.error("An error occured: " + e.getMessage());
 		}
 		
+		//Combo box properties
+		comboBox = new JComboBox<String>();
+		comboBox.setBounds(1225, 500, 120, 20);
+		frame.add(comboBox);
+		
+		//Add Checkbox to frame
+		cbStage.setBounds(1100, 450, 75, 20);
+		cbLighting.setBounds(1175, 450, 80, 20);
+		cbPower.setBounds(1255, 450, 65, 20);
+		cbSound.setBounds(1320, 450, 75, 20);
+		frame.add(cbStage);
+		frame.add(cbLighting);
+		frame.add(cbPower);
+		frame.add(cbSound);
+		
+		//Check boxes actions
+		cbStage.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				getAvailableStage();				
+			}
+		});		
+		cbLighting.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				getAvailableLight();				
+			}
+		});		
+		cbPower.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				getAvailablePower();				
+			}
+		});		
+		cbSound.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				getAvailableSound();				
+			}
+		});
+		
 		//Add image to frame
 		lblImage = new JLabel("");
 		lblImage.setIcon(new ImageIcon(logoImage));
@@ -352,11 +401,9 @@ public class CustomerDashboard implements ActionListener, Serializable {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnSearch) {
-			String id = txtResult.getText().trim();
 			String date = txtDate.getText().trim();
-
+			
 			searchTransaction(date);
-			txtDate.setText("yyyy-mm-dd");
 		}
 		if (e.getSource() == btnMessage) {
 			//Gets current date in format yyyy-mm-dd
@@ -368,8 +415,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			
 			sendMessage(this.id, now, subject, message);		
 		}
-		if (e.getSource() == btnLogout) {
-			
+		if (e.getSource() == btnLogout) {			
 			
 			try {
 				stmt.close();
@@ -379,8 +425,13 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				e1.printStackTrace();
 			}
 		}
-		if (e.getSource() == btnCalculate) {
+		if (e.getSource() == btnCalculate) {			
 			
+			String equipment = (String) comboBox.getSelectedItem();
+			String date = txtQuoteDate.getText();
+			int duration = Integer.parseInt(txtDuration.getText().trim());			
+			
+			calculateQuote(equipment, date, duration);			
 		}
 	}
 	
@@ -401,14 +452,6 @@ public class CustomerDashboard implements ActionListener, Serializable {
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public double getBalance() {
 		return balance;
 	}
@@ -419,13 +462,157 @@ public class CustomerDashboard implements ActionListener, Serializable {
 
 	@Override
 	public String toString() {
-		return "Customer Id: " + id + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nBalance: "
+		return "Customer Id: " + id + "\nFirst Name: " + firstName + "\nBalance: "
 				+ balance + "]";
 	}
 	
 	//Method used to calculate Quote
-	public void calculateQuote() {
+	public void calculateQuote(String equipment, String date, int duration) {
 		
+		ResultSet result = null;
+		String sql = "SELECT c.price FROM equipment e FULL JOIN category c e.category = c.categor_id WHERE e.name = '" + equipment + "' AND status = 'available';";
+		
+		try {
+			stmt = dbConn.createStatement();
+			result = stmt.executeQuery(sql);
+			
+			try {
+				while(result.next()) {
+					
+				}
+			} catch (SQLException sqle) {
+				logger.error("There was an error: " + sqle.getMessage());
+			}
+			
+			//if item is available calculate quote
+			//else display unavailable
+			
+			double price = 0;			
+			double totalCost = duration * price;
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Quote Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Quote Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
+		}
+		
+	}
+	
+	//Method to get available equipments
+	public void getAvailableStage() {
+		//Get available Staging equipment
+		ResultSet result = null;
+		
+		String sql = "SELECT * FROM equipment WHERE status = 'available' AND category = 'stage'";
+		
+		try {
+			stmt = dbConn.createStatement();
+			result = stmt.executeQuery(sql);
+			
+			comboBox.removeAllItems();
+			try {
+				while(result.next()) {
+					comboBox.addItem(result.getString("name"));
+				}
+			} catch (SQLException sqle) {
+				logger.error("There was an error: " + sqle.getMessage());
+			}
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
+		}
+	}
+	
+		
+		//Get available Lighting equipment
+	public void getAvailableLight() {
+		ResultSet result1 = null;		
+		String sql1 = "SELECT * FROM equipment WHERE status = 'available' AND category = 'light'";
+		
+		try {
+			stmt = dbConn.createStatement();
+			result1 = stmt.executeQuery(sql1);
+			
+			comboBox.removeAllItems();
+			try {
+				while(result1.next()) {
+					comboBox.addItem(result1.getString("name"));
+				}
+			} catch (SQLException sqle) {
+				logger.error("There was an error: " + sqle.getMessage());
+			}
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
+		}
+	}
+	
+	public void getAvailablePower() {
+		
+		//Get available Power equipment
+		ResultSet result2 = null;		
+		String sql2 = "SELECT * FROM equipment WHERE status = 'available' AND category = 'power'";
+		
+		try {
+			stmt = dbConn.createStatement();
+			result2 = stmt.executeQuery(sql2);
+			
+			comboBox.removeAllItems();
+			try {
+				while(result2.next()) {
+					comboBox.addItem(result2.getString("name"));
+				}
+			} catch (SQLException sqle) {
+				logger.error("There was an error: " + sqle.getMessage());
+			}
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
+		}
+
+	}
+	
+	public void getAvailableSound() {
+		
+		//Get available Power equipment
+		ResultSet result2 = null;		
+		String sql2 = "SELECT * FROM equipment WHERE status = 'available' AND category = 'sound'";
+		
+		try {
+			stmt = dbConn.createStatement();
+			result2 = stmt.executeQuery(sql2);
+			
+			comboBox.removeAllItems();
+			try {
+				while(result2.next()) {
+					comboBox.addItem(result2.getString("name"));
+				}
+			} catch (SQLException sqle) {
+				logger.error("There was an error: " + sqle.getMessage());
+			}
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("SQL Exception: " + e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Enquiry Status", JOptionPane.ERROR_MESSAGE);
+			logger.error("An error occured: " + e.getMessage());
+		}
+
 	}
 	
 	//Method used to send GEER an inquiry message
@@ -460,51 +647,17 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				//JOptionPane.showMessageDialog(null, "Message Sent.", "Geers Messenger Status", JOptionPane.INFORMATION_MESSAGE);
 			}
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "SQL Exception: " + e.getSQLState(), "Geers Update Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("SQL Exception: " + e.getMessage());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Messenger Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "There was an error.", "Geers Update Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
-		}
-	}
-	
-	public void availableStages() {
-		String query = "SELECT ";
-		
-		try {
-			stmt = dbConn.createStatement();
-			ResultSet result = stmt.executeQuery(query);
-			ResultSetMetaData rsmd = (ResultSetMetaData) result.getMetaData();
-			DefaultTableModel model = (DefaultTableModel) tblHistory.getModel();
-			
-			model.setRowCount(0);
-			int cols = rsmd.getColumnCount();
-			String[] colName = new String[cols];
-			for(int i=0; i<cols; i++)
-				colName[i]=rsmd.getColumnName(i+1);
-			model.setColumnIdentifiers(colName);
-			
-			String date, duration, cost, equipments;
-			while(result.next()) {
-				date = result.getString(1);
-				duration = result.getString(2);
-				cost = result.getString(3);
-				equipments = result.getString(4);
-				
-				String[] row = {date, duration, cost, equipments};
-				model.addRow(row);				
-			}								
-			
-		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
 	//Method used to search customer records for a specific transaction using their id and entered date
 	public void searchTransaction(String date2) {
-		String sql = "SELECT r.date AS 'date created', r.customer, r.start_date AS 'reserved date', r.duration, r.cost AS 'daily cost', r.duration*r.cost as 'total cost', GROUP_CONCAT(DISTINCT re.equipment) as 'equipments rented' FROM rental r INNER JOIN rented_equipments re ON r.date = re.date WHERE r.date = '"+date2+"' GROUP BY r.date;";
+		String sql = "SELECT r.date AS 'date created', r.customer, r.start_date AS 'reserved date', r.duration, r.cost AS 'daily cost', r.duration*r.cost as 'total cost', GROUP_CONCAT(DISTINCT re.equipment) as 'equipments rented' FROM rental r INNER JOIN rented_equipments re ON r.date = re.date WHERE r.date = '" + date2 + "' GROUP BY r.date;";
 		
 		try {
 			stmt = dbConn.createStatement();
@@ -519,6 +672,7 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				colName[i]=rsmd.getColumnName(i+1);
 			model.setColumnIdentifiers(colName);
 			
+			lblResult2.setText("record not found");
 			String date, customer, duration, startDate, cost, totalCost, equipments;
 			while(result.next()) {
 				date = result.getString(1);
@@ -530,14 +684,17 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				equipments = result.getString(7);
 				
 				String[] row = {date, customer, startDate, duration, cost, totalCost, equipments};
-				model.addRow(row);				
-			}								
+				model.addRow(row);
+				
+				lblResult2.setText("record found");
+			}
+			
 			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("SQL Exception: " + e.getMessage());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "There was an error: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "There was an error: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -573,10 +730,10 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			}								
 			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("SQL Exception: " + e.getMessage());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "There was an error: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "There was an error: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 			logger.error("An error occured: " + e.getMessage());
 		}
 	}
@@ -610,9 +767,9 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			}								
 			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		}
 
 		//LIGHTING TABLE
@@ -641,9 +798,9 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			}					
 			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		}
 		
 	
@@ -673,9 +830,9 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			}					
 			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		}
 
 		//SOUND TABLE
@@ -704,13 +861,13 @@ public class CustomerDashboard implements ActionListener, Serializable {
 			}					
 			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Display Status", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error executing query: " + e.getMessage(), "Record Query Status", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		//INBOX TABLE
-		String sql5 = "SELECT date, CONCAT(employee.first_name, ' ', employee.last_name) AS 'sender', subject, body FROM customer_inbox INNER JOIN employee ON customer_inbox.sender = employee.employee_id WHERE customer = '" + id + "';";
+		String sql5 = "SELECT date, CONCAT(employee.first_name, ' ', employee.last_name) AS 'sender', subject, message, status FROM customer_inbox INNER JOIN employee ON customer_inbox.sender = employee.employee_id WHERE customer = '" + id + "';";
 		
 		try {
 			stmt = dbConn.createStatement();
@@ -725,14 +882,15 @@ public class CustomerDashboard implements ActionListener, Serializable {
 				colName[i] = rsmd.getColumnName(i+1);
 			model.setColumnIdentifiers(colName);
 			
-			String date, sender, subject, body;
+			String date, sender, subject, body, status;
 			while(result.next()) {
 				date = result.getString(1);
 				sender = result.getString(2);
 				subject = result.getString(3);
 				body = result.getString(4);
+				status = result.getString(5);
 				
-				String[] row = {date, sender, subject, body};
+				String[] row = {date, sender, subject, body, status};
 				model.addRow(row);
 			}					
 			

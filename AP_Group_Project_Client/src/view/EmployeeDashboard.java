@@ -175,8 +175,7 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 				comboBoxCustomer.addItem(rs.getString(1));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("There was an error: " + e.getMessage());
 		}
 		comboBoxCustomer.setSelectedIndex(1);
 		comboBoxCustomer.setBounds(750, 400, 100, 20);
@@ -488,7 +487,7 @@ public class EmployeeDashboard  implements ActionListener, Serializable {
 	
 	//Method to get company messages
 	public void inbox() {
-		String sql = "SELECT ci.date, ci.sender, CONCAT(c.first_name, ' ', c.last_name) AS 'customer name', ci.subject, ci.body, ci.status FROM company_inbox ci INNER JOIN customer c ON ci.sender = c.customer_id;";
+		String sql = "SELECT ci.date, ci.sender, CONCAT(c.first_name, ' ', c.last_name) AS 'customer name', ci.subject, ci.message, ci.status FROM company_inbox ci INNER JOIN customer c ON ci.sender = c.customer_id;";
 		
 		try {
 			stmt = dbConn.createStatement();
